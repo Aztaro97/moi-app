@@ -23,7 +23,7 @@ export default function LandingPage() {
           Welcome to MOI City
         </h1>
         <p className="text-center mt-2 text-neutral-300 relative z-20 text-4xl">
-          Explore the virtual world of UAE's Ministry of Interior services
+          Explore the virtual world of UAE&apos;s Ministry of Interior services
           through an immersive gaming experience.
         </p>
         <Link href="/game">
