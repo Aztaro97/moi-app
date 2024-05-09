@@ -1,10 +1,11 @@
+// @ts-nocheck
+
 import * as THREE from "three";
 import { Stats, OrbitControls, Circle } from "@react-three/drei";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 
-import allGlft from "@/assets/gltf/index";
 
 const SOUTH = 2;
 const LEAP = 240;

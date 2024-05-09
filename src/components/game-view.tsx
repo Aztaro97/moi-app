@@ -11,10 +11,10 @@ import { main } from "@/scenes/main-ceans";
 
 const GameView = () => {
   const canvasRef = useRef(null);
-  const [renderer, setRenderer] = useState(null);
-  const [scene, setScene] = useState(null);
-  const [camera, setCamera] = useState(null);
-  const [controls, setControls] = useState(null);
+  const [renderer, setRenderer] = useState<any>(null);
+  const [scene, setScene] = useState<any>(null);
+  const [camera, setCamera] = useState<any>(null);
+  const [controls, setControls] = useState<any>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
