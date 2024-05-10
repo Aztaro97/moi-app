@@ -20,14 +20,16 @@ export default function LandingPage() {
             "md:text-6xl text-xl font-bold text-white relative z-20 m-0"
           )}
         >
-          Welcome to MOI City
+          Welcome to <span className="text-[#986d19]">MOI City</span>
         </h1>
         <p className="text-center mt-2 text-neutral-300 relative z-20 text-4xl">
           Explore the virtual world of UAE&apos;s Ministry of Interior services
           through an immersive gaming experience.
         </p>
         <Link href="/game">
-          <Button>Start Your Adventure</Button>
+          <Button className="bg-[#986d19] text-white">
+            Start Your Adventure
+          </Button>
         </Link>
       </div>
     </div>
