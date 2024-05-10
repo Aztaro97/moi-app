@@ -27,7 +27,7 @@ export default function LandingPage() {
           through an immersive gaming experience.
         </p>
         <Link href="/game">
-          <Button className="bg-[#986d19] text-white">
+          <Button className="bg-[#986d19] text-white hover:bg-white hover:text-[#986d19]">
             Start Your Adventure
           </Button>
         </Link>

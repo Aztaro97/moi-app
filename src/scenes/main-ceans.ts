@@ -118,7 +118,7 @@ const cluster = [
 	{ x: -5, z: -5, cluster: clusterNames[8], direction: SOUTH },
 ];
 
-export function main() {
+export function renderScene() {
 	const canvas = document.querySelector("#c");
 	renderer = new THREE.WebGLRenderer({ canvas });
 
@@ -255,10 +255,19 @@ export function main() {
 			controls.update();
 
 			gltf.scene.traverse(function (child) {
+				console.log("child ", child)
+
 				if (child.isMesh) {
 					child.receiveShadow = true;
 					child.castShadow = true;
 					child.material.depthWrite = !child.material.transparent;
+
+					if (child.name.includes("apartment")) {
+						console.log("child ", child)
+						child.userData.details = { /* details */ };
+					}
+
+
 				}
 			});
 
