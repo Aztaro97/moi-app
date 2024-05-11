@@ -6,6 +6,7 @@
 import { Boxes } from "@/components/ui/background-boxes";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -15,6 +16,7 @@ export default function LandingPage() {
 
       <Boxes />
       <div className="max-w-2xl w-full mx-auto flex flex-col justify-center items-center gap-8 z-10">
+		<Image src={"/images/logo.png"} width={200} height={200} className="mx-auto mb-5" alt="Logo" />
         <h1
           className={cn(
             "md:text-6xl text-xl font-bold text-white relative z-20 m-0"

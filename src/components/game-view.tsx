@@ -8,6 +8,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { renderScene } from "@/scenes/main-ceans";
+import { Menu as MenuIcon} from "lucide-react";
+import { Button } from "./ui/button";
 
 const GameView = () => {
   const canvasRef = useRef(null);
@@ -56,7 +58,7 @@ const GameView = () => {
     }
   }, [renderer, camera]);
 
-  return <canvas ref={canvasRef} id="c" />;
+  return <canvas ref={canvasRef} id="c" />
 };
 
 export default GameView;
