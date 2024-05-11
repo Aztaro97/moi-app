@@ -22,16 +22,30 @@ const GameView = () => {
     newRenderer.setSize(window.innerWidth, window.innerHeight);
 
     const newScene = new THREE.Scene();
+    newScene.background = new THREE.Color("#9FE3FA");
+
     const newCamera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    newCamera.position.set(0, 20, 100);
+    newCamera.position.set(80, 140, 80);
+    newCamera.position.y = 200;
 
     const newControls = new OrbitControls(newCamera, canvasRef.current);
-    newControls.enableDamping = true; // Optional, but this gives a nice damping effect during camera manipulation
+    newControls.enableDamping = true; // Optional, but this gives a nice
+    newControls.dampingFactor = 0.05; // smooth effect to the camera movement
+    newControls.enableZoom = true;
+    newControls.zoomSpeed = 1;
+    newControls.zoomToCursor = false;
+    newControls.enableRotate = true;
+    newControls.autoRotate = false;
+    newControls.rotateSpeed = 1;
+    newControls.autoRotateSpeed = -10;
+    newControls.enablePan = true;
+    newControls.screenSpacePanning = true;
+    newControls.maxPolarAngle = Math.PI / 2;
 
     setRenderer(newRenderer);
     setScene(newScene);

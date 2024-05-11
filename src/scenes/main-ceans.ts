@@ -148,7 +148,17 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 	});
 }
 
+function enforceCameraHeight(camera) {
+	// Assuming the lowest point the camera should not see below is at y = 0
+	if (camera.position.y < 10) {  // Minimum 10 units above the ground or any object
+		camera.position.y = 10;
+	}
+}
+
+
+
 export function renderScene(scene, camera, renderer, controls, gltfLoader) {
+
 	renderer.shadowMap.enabled = true;
 	renderer.gammaInput = renderer.gammaOutput = true;
 	renderer.gammaFactor = 2.0;
@@ -165,6 +175,7 @@ export function renderScene(scene, camera, renderer, controls, gltfLoader) {
 	function render() {
 		if (!isPlaying) return;
 		controls.update();
+		enforceCameraHeight(camera);
 
 		handleCameraPosition(camera, controls);
 		handleCarMovement(camera);
