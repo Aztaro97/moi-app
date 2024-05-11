@@ -275,6 +275,7 @@ function loadCars({ x, z, cluster, direction }, scene, camera, controls, gltfLoa
 
 		scene.add(gltf.scene);
 
+		// Add cars to the carList array
 		gltf.scene.children.forEach((car) => {
 			car.distance = 0;
 			car.maxSpeed = 0.3;

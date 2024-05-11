@@ -44,8 +44,18 @@ export function DepartmentMenuModal() {
 }
 
 const CardItem = () => {
+  const { setClusterSelected, setIsOpen } = useDepartmentModal();
+
+  const handleSelect = () => {
+    setClusterSelected("cluster 1");
+    setIsOpen(false);
+  };
+
   return (
-    <div className="relative h-full w-full group rounded-lg max-w-[400px]">
+    <div
+      onClick={handleSelect}
+      className="relative h-full w-full group rounded-lg max-w-[400px]"
+    >
       <Image
         alt="Card 1"
         className="h-[200px] w-full group-hover:scale-105 transition-transform duration-300"

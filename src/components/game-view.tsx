@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { renderScene } from "@/scenes/main-ceans";
+import { useDepartmentModal } from "@/store/departmentModalStore";
 
 const GameView = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -12,6 +13,8 @@ const GameView = () => {
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
   const [controls, setControls] = useState<OrbitControls | null>(null);
+
+  const { clusterSelected } = useDepartmentModal();
 
   useEffect(() => {
     if (!canvasRef.current) return;
