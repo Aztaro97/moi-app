@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,71 +7,62 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
-
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Menu as MenuIcon} from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useDepartmentModal } from "@/store/departmentModalStore";
+import { Menu as MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export function DepartmentMenuModal() {
+  const { isOpen, setIsOpen } = useDepartmentModal();
   return (
-    // <Dialog className="!max-w-3xl !w-full" style={{
-	// 	maxWidth: "900px",
-	// 	width: "100%"
-	// }}>
-    //   <DialogTrigger asChild>
-	//   	<Button className="absolute bottom-2 right-2 rounded-sm">
-	// 		<MenuIcon />
-	// 	</Button>
-    //   </DialogTrigger>
-    //   <DialogContent className="max-w-lg w-full bg-[#0a0a0a85] flex flex-col">
-    //     <DialogHeader>
-    //       <DialogTitle className="text-white">Choose a department</DialogTitle>
-    //     </DialogHeader>
-    //     <div className="grid grid-cols-2 !gap-5 w-full max-w-full">
-    //       <CardItem />
-    //       <CardItem />
-    //     </div>
-    // </Dialog>
-	<Dialog>
-        <DialogTrigger asChild>
-		<Button className="absolute bottom-2 right-2 rounded-sm">
-			<MenuIcon />
-		</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription className="flex grid-cols-2 space-x-5 w-full max-w-full">
-				<CardItem />
-				<CardItem />
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-  )
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogContent className="max-w-[200px] bg-[#0a0a0a85] flex flex-col">
+        <DialogHeader>
+          <DialogTitle className="text-white">Choose a department</DialogTitle>
+        </DialogHeader>
+        <div
+          className="grid !grid-cols-2 gap-4"
+          style={{
+            width: "100%",
+            height: "100%",
+            maxWidth: "700px",
+            gridTemplateColumns: "repeat(3, 1fr)",
+          }}
+        >
+          <CardItem />
+          <CardItem />
+          <CardItem />
+          <CardItem />
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
 
 const CardItem = () => {
-	return (
-		<div className="!relative group rounded-lg mr-[30px]">
-			{/* <Link className="absolute inset-0 z-10" href="#">
-				<span className="sr-only">View</span>
-			</Link> */}
-			<Image
-				alt="Card 1"
-				className="object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300"
-				height={200}
-				width={200}
-				src="/images/driving.jpeg"
-			/>
-			<div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/50" />
-				<div className="absolute inset-0 flex items-center justify-center">
-				<h3 className="text-white text-xl font-semibold text-center">Card 1</h3>
-			</div>
+  return (
+    <div className="relative h-full w-full group rounded-lg max-w-[400px]">
+      <Image
+        alt="Card 1"
+        className="h-[200px] w-full group-hover:scale-105 transition-transform duration-300"
+        height={300}
+        width={300}
+        src="/images/driving.jpeg"
+        priority
+      />
+      <div
+        className="absolute w-full h-full flex items-center justify-center bg-black/60 rounded-lg group-hover:bg-black/80 transition-all duration-300"
+        style={{
+          top: 0,
+          left: 0,
+        }}
+      >
+        <h3 className="text-white text-xl font-semibold text-center">Card 1</h3>
       </div>
-	)
-}
+    </div>
+  );
+};
