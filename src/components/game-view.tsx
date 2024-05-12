@@ -27,7 +27,7 @@ const GameView = () => {
         100,
         position.z * 60 + 100
       );
-      const newTarget = new THREE.Vector3(position.x * 60, 0, position.z * 60);
+      const newTarget = new THREE.Vector3(position.x * 60, 60, position.z * 60);
 
       // Use Tween.js or similar library for smooth transitions, or implement a simple lerp function:
       // Tween the camera position
@@ -49,7 +49,7 @@ const GameView = () => {
         requestAnimationFrame(animate);
         TWEEN.update(time);
       }
-      animate(2000);
+      animate(200);
     },
     [camera, controls]
   );
@@ -72,7 +72,7 @@ const GameView = () => {
       1000
     );
     newCamera.position.set(80, 140, 80);
-    newCamera.position.y = 200;
+    // newCamera.position.y = 200;
 
     const newControls = new OrbitControls(newCamera, canvasRef.current);
     newControls.enableDamping = true; // Optional, but this gives a nice

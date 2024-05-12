@@ -114,8 +114,17 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 				child.castShadow = true;
 				child.material.depthWrite = !child.material.transparent;
 
-				if (child.name.includes("apartment")) {
+
+				if (child.name.includes("Natures_Cube")) {
+					console.log("child.name ", child.name)
 					child.userData.details = { /* details */ };
+
+					// Create a sign mesh
+					const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
+					const signMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+					const signMesh = new THREE.Mesh(signGeometry, signMaterial);
+					signMesh.position.set(0, 15, 0); // Adjust position as needed
+					child.add(signMesh);
 				}
 			}
 		});
@@ -126,6 +135,7 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 		scene.add(gltf.scene);
 	});
 }
+
 
 function enforceCameraHeight(camera) {
 	// Assuming the lowest point the camera should not see below is at y = 0

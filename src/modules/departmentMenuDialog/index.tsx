@@ -55,8 +55,8 @@ const departmentData: IDepartmentData[] = [
   {
     name: "Super Market",
     cluster: "supermarket",
-    x: 71,
-    z: 67,
+    x: 0,
+    z: -3,
     direction: 2,
   },
 ];
