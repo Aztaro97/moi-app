@@ -1,9 +1,7 @@
 // @ts-nocheck
 
+import { clusterNames } from "@/constants/clusters";
 import * as THREE from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { MapControls } from "three/examples/jsm/controls/MapControls.js";
-
 
 const SOUTH = 2;
 const LEAP = 240;
@@ -13,26 +11,7 @@ let raycaster = new THREE.Raycaster();
 let carList = [];
 let isPlaying = true;
 
-const clusterNames = [
-	"factory",
-	"house2",
-	"shoparea",
-	"house",
-	"apartments",
-	"shops",
-	"fastfood",
-	"house3",
-	"stadium",
-	"gas",
-	"supermarket",
-	"coffeeshop",
-	"residence",
-	"bus",
-	"park",
-	"supermarket",
-];
-
-const cluster = [
+export const cluster = [
 	{ x: 1, z: 0, cluster: "road" },
 
 	{ x: 2, z: 2, cluster: clusterNames[0], direction: SOUTH },

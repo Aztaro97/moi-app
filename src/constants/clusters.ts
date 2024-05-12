@@ -1,0 +1,18 @@
+export const clusterNames = [
+	"factory",
+	"house2",
+	"shoparea",
+	"house",
+	"apartments",
+	"shops",
+	"fastfood",
+	"house3",
+	"stadium",
+	"gas",
+	"supermarket",
+	"coffeeshop",
+	"residence",
+	"bus",
+	"park",
+	"supermarket",
+];

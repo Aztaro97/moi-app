@@ -9,6 +9,47 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+// export const departmentData = [
+//   "house2",
+//   "shoparea",
+//   "house",
+//   "apartments",
+//   "shops",
+//   "fastfood",
+//   "house3",
+//   "supermarket",
+//   "coffeeshop",
+//   "residence",
+//   "supermarket",
+// ];
+
+interface IDepartmentData {
+  name: string;
+  x: number;
+  z: number;
+  direction: number;
+}
+const departmentData: IDepartmentData[] = [
+  {
+    name: "house2",
+    x: 2,
+    z: 2,
+    direction: 2,
+  },
+  {
+    name: "shoparea",
+    x: 2,
+    z: 1,
+    direction: 2,
+  },
+  {
+    name: "apartments",
+    x: 2,
+    z: 0,
+    direction: 2,
+  },
+];
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useDepartmentModal } from "@/store/departmentModalStore";
@@ -33,21 +74,20 @@ export function DepartmentMenuModal() {
             gridTemplateColumns: "repeat(3, 1fr)",
           }}
         >
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
+          {departmentData.map((department, index) => (
+            <CardItem key={index} {...department} />
+          ))}
         </div>
       </DialogContent>
     </Dialog>
   );
 }
 
-const CardItem = () => {
+const CardItem = ({ name }: IDepartmentData) => {
   const { setClusterSelected, setIsOpen } = useDepartmentModal();
 
   const handleSelect = () => {
-    setClusterSelected("cluster 1");
+    setClusterSelected(name);
     setIsOpen(false);
   };
 
@@ -57,7 +97,7 @@ const CardItem = () => {
       className="relative h-full w-full group rounded-lg max-w-[400px]"
     >
       <Image
-        alt="Card 1"
+        alt={name}
         className="h-[200px] w-full group-hover:scale-105 transition-transform duration-300"
         height={300}
         width={300}
@@ -71,7 +111,7 @@ const CardItem = () => {
           left: 0,
         }}
       >
-        <h3 className="text-white text-xl font-semibold text-center">Card 1</h3>
+        <h3 className="text-white text-xl font-semibold text-center">{name}</h3>
       </div>
     </div>
   );

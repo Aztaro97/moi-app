@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { renderScene } from "@/scenes/main-ceans";
+import { cluster, renderScene } from "@/scenes/main-ceans";
 import { useDepartmentModal } from "@/store/departmentModalStore";
 
 const GameView = () => {
@@ -77,6 +77,37 @@ const GameView = () => {
       newRenderer.dispose(); // Dispose resources when the component unmounts
     };
   }, []);
+
+  //   Change the camera position based on the selected cluster
+  useEffect(() => {
+    if (scene && camera && controls) {
+      //   const cluster = scene.getObjectByName(clusterSelected);
+      //   if (cluster) {
+      //     const box = new THREE.Box3().setFromObject(cluster);
+      //     const boxCenter = box.getCenter(new THREE.Vector3());
+      //     const boxSize = box.getSize(new THREE.Vector3()).length();
+      //     const boxSizeFactor = boxSize / 2;
+      //     const cameraPosition = new THREE.Vector3();
+      //     cameraPosition.copy(boxCenter);
+      //     cameraPosition.y += boxSizeFactor;
+      //     cameraPosition.z += boxSizeFactor;
+      //     cameraPosition.x += boxSizeFactor;
+      //     camera.position.copy(cameraPosition);
+      //     controls.target.copy(boxCenter);
+      //     controls.update();
+      //   }
+      const position = cluster.find((c) => c.cluster === clusterSelected);
+      if (!position) {
+        console.error("Cluster position not found:", clusterSelected);
+        return;
+      }
+
+      // Adjust these values based on your scene's scale and desired camera positioning
+      camera.position.set(position.x * 60, 20, position.z * 60);
+      controls.target.set(position.x, 0, position.z);
+      controls.update();
+    }
+  }, [clusterSelected, scene, camera, controls]);
 
   return <canvas ref={canvasRef} id="c" style={{ display: "block" }} />;
 };
