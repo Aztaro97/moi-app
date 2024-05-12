@@ -6,6 +6,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { cluster, renderScene } from "@/scenes/main-ceans";
 import { useDepartmentModal } from "@/store/departmentModalStore";
+import * as TWEEN from "@tweenjs/tween.js";
 
 const GameView = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -15,6 +16,43 @@ const GameView = () => {
   const [controls, setControls] = useState<OrbitControls | null>(null);
 
   const { clusterSelected } = useDepartmentModal();
+
+  // Function to calculate the optimal camera position and smoothly transition
+  const updateCameraPosition = useCallback(
+    (position: any) => {
+      if (!camera || !controls) return;
+
+      const newPosition = new THREE.Vector3(
+        position.x * 60,
+        100,
+        position.z * 60 + 100
+      );
+      const newTarget = new THREE.Vector3(position.x * 60, 0, position.z * 60);
+
+      // Use Tween.js or similar library for smooth transitions, or implement a simple lerp function:
+      // Tween the camera position
+      new TWEEN.Tween(camera.position)
+        .to({ x: newPosition.x, y: 60, z: newPosition.z }, 1000)
+        .easing(TWEEN.Easing.Cubic.Out)
+        .onUpdate(() => controls.update())
+        .start();
+
+      // Tween the controls target
+      new TWEEN.Tween(controls.target)
+        .to({ x: newTarget.x, y: 20, z: newTarget.z }, 1000)
+        .easing(TWEEN.Easing.Cubic.Out)
+        .onUpdate(() => controls.update())
+        .start();
+
+      // Start the tween update loop
+      function animate(time: number) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
+      }
+      animate(2000);
+    },
+    [camera, controls]
+  );
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -81,33 +119,16 @@ const GameView = () => {
   //   Change the camera position based on the selected cluster
   useEffect(() => {
     if (scene && camera && controls) {
-      //   const cluster = scene.getObjectByName(clusterSelected);
-      //   if (cluster) {
-      //     const box = new THREE.Box3().setFromObject(cluster);
-      //     const boxCenter = box.getCenter(new THREE.Vector3());
-      //     const boxSize = box.getSize(new THREE.Vector3()).length();
-      //     const boxSizeFactor = boxSize / 2;
-      //     const cameraPosition = new THREE.Vector3();
-      //     cameraPosition.copy(boxCenter);
-      //     cameraPosition.y += boxSizeFactor;
-      //     cameraPosition.z += boxSizeFactor;
-      //     cameraPosition.x += boxSizeFactor;
-      //     camera.position.copy(cameraPosition);
-      //     controls.target.copy(boxCenter);
-      //     controls.update();
-      //   }
       const position = cluster.find((c) => c.cluster === clusterSelected);
       if (!position) {
         console.error("Cluster position not found:", clusterSelected);
         return;
       }
 
-      // Adjust these values based on your scene's scale and desired camera positioning
-      camera.position.set(position.x * 60, 20, position.z * 60);
-      controls.target.set(position.x, 0, position.z);
-      controls.update();
+      // Call the camera update function
+      updateCameraPosition(position);
     }
-  }, [clusterSelected, scene, camera, controls]);
+  }, [clusterSelected, updateCameraPosition]);
 
   return <canvas ref={canvasRef} id="c" style={{ display: "block" }} />;
 };

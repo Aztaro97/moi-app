@@ -25,27 +25,38 @@ import {
 
 interface IDepartmentData {
   name: string;
+  cluster: string;
   x: number;
   z: number;
   direction: number;
 }
 const departmentData: IDepartmentData[] = [
   {
-    name: "house2",
+    name: "House",
+    cluster: "house2",
     x: 2,
     z: 2,
     direction: 2,
   },
   {
-    name: "shoparea",
+    name: "Shop Area",
+    cluster: "shoparea",
     x: 2,
     z: 1,
     direction: 2,
   },
   {
-    name: "apartments",
+    name: "Apartments",
+    cluster: "apartments",
     x: 2,
     z: 0,
+    direction: 2,
+  },
+  {
+    name: "Super Market",
+    cluster: "supermarket",
+    x: 71,
+    z: 67,
     direction: 2,
   },
 ];
@@ -70,7 +81,7 @@ export function DepartmentMenuModal() {
           style={{
             width: "100%",
             height: "100%",
-            maxWidth: "700px",
+            maxWidth: "900px",
             gridTemplateColumns: "repeat(3, 1fr)",
           }}
         >
@@ -83,18 +94,18 @@ export function DepartmentMenuModal() {
   );
 }
 
-const CardItem = ({ name }: IDepartmentData) => {
+const CardItem = ({ name, cluster }: IDepartmentData) => {
   const { setClusterSelected, setIsOpen } = useDepartmentModal();
 
   const handleSelect = () => {
-    setClusterSelected(name);
+    setClusterSelected(cluster);
     setIsOpen(false);
   };
 
   return (
     <div
       onClick={handleSelect}
-      className="relative h-full w-full group rounded-lg max-w-[400px]"
+      className="relative h-full w-full group rounded-lg max-w-[400px] !cursor-pointer overflow-hidden"
     >
       <Image
         alt={name}
@@ -109,6 +120,7 @@ const CardItem = ({ name }: IDepartmentData) => {
         style={{
           top: 0,
           left: 0,
+          cursor: "pointer",
         }}
       >
         <h3 className="text-white text-xl font-semibold text-center">{name}</h3>
