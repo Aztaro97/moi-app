@@ -16,7 +16,14 @@ export default function LandingPage() {
 
       <Boxes />
       <div className="max-w-2xl w-full mx-auto flex flex-col justify-center items-center gap-8 z-10">
-		<Image src={"/images/logo.png"} width={200} height={200} className="mx-auto mb-5" alt="Logo" />
+        <Image
+          src={"/images/logo.png"}
+          width={300}
+          height={300}
+          className="mx-auto mb-5"
+          alt="Logo"
+          priority
+        />
         <h1
           className={cn(
             "md:text-6xl text-xl font-bold text-white relative z-20 m-0"
