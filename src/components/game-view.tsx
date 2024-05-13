@@ -14,6 +14,7 @@ const GameView = () => {
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
   const [controls, setControls] = useState<OrbitControls | null>(null);
+  const [interactiveObjects, setInteractiveObjects] = useState([]);
 
   const { clusterSelected } = useDepartmentModal();
 
@@ -52,6 +53,61 @@ const GameView = () => {
       animate(200);
     },
     [camera, controls]
+  );
+
+  const onDocumentMouseClick = useCallback(
+    (event) => {
+      event.preventDefault();
+      if (!camera || !controls || !scene) return;
+
+      const mouse = new THREE.Vector2();
+
+      const raycaster = new THREE.Raycaster();
+      controls?.update();
+      raycaster.setFromCamera(mouse, camera);
+
+      //   const intersects = raycaster.intersectObjects(interactiveObjects);
+      const intersects = raycaster.intersectObjects(scene?.children, true);
+
+      if (intersects.length > 0) {
+        const object = intersects[0].object;
+        console.log("Cluster ID:", object.userData);
+        // Trigger your onClick logic here
+        // onClickCluster(object.userData.clusterId);
+      }
+    },
+    [camera, interactiveObjects]
+  );
+
+  const handleHover = useCallback(
+    (event) => {
+      if (!camera || !controls || !scene) return;
+
+      const mouse = new THREE.Vector2(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1
+      );
+
+      const raycaster = new THREE.Raycaster();
+      controls?.update();
+      raycaster.setFromCamera(mouse, camera);
+
+      const intersects = raycaster.intersectObjects(scene.children, true);
+
+      if (intersects.length > 0) {
+        const object = intersects[0].object;
+        console.log("Cluster ID:", object.userData);
+        // Update cursor or show tooltip if hovering over a sign
+        if (object.parent && object.parent.userData.details) {
+          document.body.style.cursor = "pointer";
+        } else {
+          document.body.style.cursor = "default";
+        }
+      } else {
+        document.body.style.cursor = "default";
+      }
+    },
+    [camera, interactiveObjects]
   );
 
   useEffect(() => {
@@ -98,7 +154,8 @@ const GameView = () => {
       newCamera,
       newRenderer,
       newControls,
-      new GLTFLoader()
+      new GLTFLoader(),
+      setInteractiveObjects
     );
 
     const handleResize = () => {
@@ -129,6 +186,16 @@ const GameView = () => {
       updateCameraPosition(position);
     }
   }, [clusterSelected, updateCameraPosition]);
+
+  useEffect(() => {
+    document.addEventListener("click", onDocumentMouseClick);
+    document.addEventListener("mousemove", handleHover);
+
+    return () => {
+      document.removeEventListener("click", onDocumentMouseClick);
+      document.removeEventListener("mousemove", handleHover);
+    };
+  }, [onDocumentMouseClick, handleHover]);
 
   return <canvas ref={canvasRef} id="c" style={{ display: "block" }} />;
 };

@@ -88,7 +88,7 @@ export const cluster = [
 ];
 
 
-function loadClusters({ x, z, cluster, direction }, scene, camera, controls, gltfLoader) {
+function loadClusters({ x, z, cluster, direction }, scene, camera, controls, gltfLoader, setInteractiveObjects) {
 	gltfLoader.load(`/assets/gltf/${cluster}.gltf`, (gltf) => {
 		const box = new THREE.Box3().setFromObject(gltf.scene);
 		const boxSize = box.getSize(new THREE.Vector3()).length();
@@ -116,8 +116,8 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 
 
 				if (child.name.includes("Natures_Cube")) {
-					console.log("child.name ", child.name)
-					child.userData.details = { /* details */ };
+					// console.log("child.name ", child.name)
+					child.userData.details = {};
 
 					// Create a sign mesh
 					const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
@@ -125,6 +125,9 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 					const signMesh = new THREE.Mesh(signGeometry, signMaterial);
 					signMesh.position.set(0, 15, 0); // Adjust position as needed
 					child.add(signMesh);
+
+					// Add the sign mesh to the interactive objects array
+					setInteractiveObjects(signMesh);
 				}
 			}
 		});
@@ -146,7 +149,7 @@ function enforceCameraHeight(camera) {
 
 
 
-export function renderScene(scene, camera, renderer, controls, gltfLoader) {
+export function renderScene(scene, camera, renderer, controls, gltfLoader, setInteractiveObjects) {
 
 	renderer.shadowMap.enabled = true;
 	renderer.gammaInput = renderer.gammaOutput = true;
@@ -158,7 +161,7 @@ export function renderScene(scene, camera, renderer, controls, gltfLoader) {
 
 	setupLighting(scene, renderer);
 
-	cluster.forEach((cl) => loadClusters(cl, scene, camera, controls, gltfLoader));
+	cluster.forEach((cl) => loadClusters(cl, scene, camera, controls, gltfLoader, setInteractiveObjects));
 	loadCars({ x: 1, z: 0, cluster: "cars" }, scene, camera, controls, gltfLoader);
 
 	function render() {
