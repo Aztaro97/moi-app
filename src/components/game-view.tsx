@@ -56,7 +56,7 @@ const GameView = () => {
   );
 
   const onDocumentMouseClick = useCallback(
-    (event) => {
+    (event: any) => {
       event.preventDefault();
       if (!camera || !controls || !scene) return;
 
@@ -80,7 +80,7 @@ const GameView = () => {
   );
 
   const handleHover = useCallback(
-    (event) => {
+    (event: any) => {
       if (!camera || !controls || !scene) return;
 
       const mouse = new THREE.Vector2(
