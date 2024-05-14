@@ -26,9 +26,9 @@ const GameView = () => {
       if (!camera || !controls) return;
 
       const newPosition = new THREE.Vector3(
-        position.x * 60,
+        position.x * 1,
         100,
-        position.z * 60 + 100
+        position.z * 1 + 100
       );
       const newTarget = new THREE.Vector3(position.x * 60, 60, position.z * 60);
 
