@@ -7,6 +7,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { cluster, renderScene } from "@/scenes/main-ceans";
 import { useDepartmentModal } from "@/store/departmentModalStore";
 import * as TWEEN from "@tweenjs/tween.js";
+import { useDepartmentServicesModal } from "@/store/departmentServicesModalStore";
 
 const GameView = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -17,6 +18,7 @@ const GameView = () => {
   const [interactiveObjects, setInteractiveObjects] = useState([]);
 
   const { clusterSelected } = useDepartmentModal();
+  const { setIsOpen: setIsOpenService } = useDepartmentServicesModal();
 
   // Function to calculate the optimal camera position and smoothly transition
   const updateCameraPosition = useCallback(
@@ -72,11 +74,16 @@ const GameView = () => {
       if (intersects.length > 0) {
         const object = intersects[0].object;
         console.log("Cluster ID:", object.userData);
+        if (object.userData.name === "Residence") {
+          setIsOpenService(true);
+        } else {
+          setIsOpenService(false);
+        }
         // Trigger your onClick logic here
         // onClickCluster(object.userData.clusterId);
       }
     },
-    [camera, interactiveObjects]
+    [camera, setIsOpenService, scene, controls]
   );
 
   const handleHover = useCallback(
