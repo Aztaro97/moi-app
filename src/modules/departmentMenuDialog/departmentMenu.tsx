@@ -14,22 +14,22 @@ interface IDepartmentData {
 }
 const departmentData: IDepartmentData[] = [
   {
-    name: "House",
-    cluster: "house2",
-    x: 2,
-    z: 2,
+    name: "crime security",
+    cluster: "crime-security",
+    x: -1,
+    z: 0,
     direction: 2,
   },
   {
-    name: "Shop Area",
-    cluster: "shoparea",
+    name: "Gamification",
+    cluster: "crime-security",
     x: 2,
     z: 1,
     direction: 2,
   },
   {
-    name: "Apartments",
-    cluster: "apartments",
+    name: "civil defense",
+    cluster: "civil-defense",
     x: 2,
     z: 0,
     direction: 2,
@@ -39,6 +39,27 @@ const departmentData: IDepartmentData[] = [
     cluster: "supermarket",
     x: 0,
     z: -3,
+    direction: 2,
+  },
+  {
+    name: "Policing General Head Quarter",
+    cluster: "Policing",
+    x: -3,
+    z: -4,
+    direction: 2,
+  },
+  {
+    name: "Punitive and Reformatory",
+    cluster: "PUNITIVE",
+    x: -3,
+    z: -4,
+    direction: 2,
+  },
+  {
+    name: "Traffic & Licensing",
+    cluster: "traffic",
+    x: -3,
+    z: -4,
     direction: 2,
   },
 ];
@@ -75,7 +96,9 @@ const CardItem = ({ name, cluster }: IDepartmentData) => {
         priority
       />
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/60 rounded-lg group-hover:bg-black/80 transition-all duration-300">
-        <h3 className="text-white text-xl font-semibold text-center">{name}</h3>
+        <h3 className="text-white text-xl font-semibold text-center uppercase">
+          {name}
+        </h3>
       </div>
     </div>
   );

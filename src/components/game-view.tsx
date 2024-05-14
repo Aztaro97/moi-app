@@ -74,16 +74,14 @@ const GameView = () => {
       if (intersects.length > 0) {
         const object = intersects[0].object;
         console.log("Cluster ID:", object.userData);
-        if (object.userData.name === "Residence") {
-          setIsOpenService(true);
-        } else {
-          setIsOpenService(false);
-        }
+        // if (object.userData.name === "Residence") {
+        //   setIsOpenService(true);
+        // }
         // Trigger your onClick logic here
         // onClickCluster(object.userData.clusterId);
       }
     },
-    [camera, setIsOpenService, scene, controls]
+    [camera, scene, controls, interactiveObjects]
   );
 
   const handleHover = useCallback(
