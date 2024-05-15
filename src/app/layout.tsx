@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
 
-// Font files can be colocated inside of `pages`
 const myFont = localFont({
   src: [
     {

@@ -5,9 +5,9 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { cluster, renderScene } from "@/scenes/main-ceans";
-import { useDepartmentModal } from "@/store/departmentModalStore";
+import { useDepartmentModal } from "@/stores/departmentModalStore";
 import * as TWEEN from "@tweenjs/tween.js";
-import { useDepartmentServicesModal } from "@/store/departmentServicesModalStore";
+import { useDepartmentServicesModal } from "@/stores/departmentServicesModalStore";
 
 const GameView = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -20,7 +20,6 @@ const GameView = () => {
   const { clusterSelected } = useDepartmentModal();
   const { setIsOpen: setIsOpenService } = useDepartmentServicesModal();
 
-  // Function to calculate the optimal camera position and smoothly transition
   const updateCameraPosition = useCallback(
     (position: any) => {
       if (!camera || !controls) return;
@@ -32,22 +31,21 @@ const GameView = () => {
       );
       const newTarget = new THREE.Vector3(position.x * 60, 60, position.z * 60);
 
-      // Use Tween.js or similar library for smooth transitions, or implement a simple lerp function:
-      // Tween the camera position
+
       new TWEEN.Tween(camera.position)
         .to({ x: newPosition.x, y: 60, z: newPosition.z }, 1000)
         .easing(TWEEN.Easing.Cubic.Out)
         .onUpdate(() => controls.update())
         .start();
 
-      // Tween the controls target
+
       new TWEEN.Tween(controls.target)
         .to({ x: newTarget.x, y: 20, z: newTarget.z }, 1000)
         .easing(TWEEN.Easing.Cubic.Out)
         .onUpdate(() => controls.update())
         .start();
 
-      // Start the tween update loop
+
       function animate(time: number) {
         requestAnimationFrame(animate);
         TWEEN.update(time);
@@ -71,7 +69,7 @@ const GameView = () => {
       controls?.update();
       raycaster.setFromCamera(mouse, camera);
 
-      //   const intersects = raycaster.intersectObjects(interactiveObjects);
+  
       const intersects = raycaster.intersectObjects(scene?.children, true);
 
       const departmentServices = [
@@ -85,14 +83,13 @@ const GameView = () => {
 
       if (intersects.length > 0) {
         const object = intersects[0].object;
-        // console.log("Cluster ID:", object.userData);
+
         if (
           departmentServices.find((service) => service === object.userData.name)
         ) {
           setIsOpenService(true);
         }
-        // Trigger your onClick logic here
-        // onClickCluster(object.userData.clusterId);
+  
       }
     },
     [camera, scene, controls, interactiveObjects]

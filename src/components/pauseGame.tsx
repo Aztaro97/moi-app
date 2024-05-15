@@ -1,11 +1,11 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
-import { useDepartmentModal } from "@/store/departmentModalStore";
+import { useDepartmentModal } from "@/stores/departmentModalStore";
 
 export default function PauseGame() {
   const router = useRouter();
-  const { isOpen, setIsOpen } = useDepartmentModal();
+  const { setIsOpen } = useDepartmentModal();
   return (
     <div className="flex flex-col justify-center items-center gap-10 mt-16">
       <Button

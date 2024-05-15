@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/PmwTvNfrVgf
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Boxes } from "@/components/ui/background-boxes";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -36,7 +31,7 @@ export default function LandingPage() {
           through an immersive gaming experience.
         </p>
         <Link href="/game">
-          <Button className="bg-[#986d19] text-white hover:bg-white hover:text-[#986d19]">
+          <Button className="bg-[#986d19] text-lg px-4 py-4 text-white hover:bg-white hover:text-[#986d19]">
             Start Your Adventure
           </Button>
         </Link>

@@ -1,4 +1,4 @@
-import { useDepartmentServicesModal } from "@/store/departmentServicesModalStore";
+import { useDepartmentServicesModal } from "@/stores/departmentServicesModalStore";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {

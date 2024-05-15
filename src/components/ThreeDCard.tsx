@@ -1,12 +1,10 @@
-import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import Link from "next/link";
+
 
 interface ThreeDCardProps {
   serviceTitle: string; // Define prop types
   serviceDescription: string;
-  imageUrl: string;
   onNextStep: () => void;
   onPrevStep: () => void;
   children: React.ReactNode;
@@ -15,7 +13,6 @@ interface ThreeDCardProps {
 export function ThreeDCard({
   serviceTitle,
   serviceDescription,
-  imageUrl,
   onNextStep,
   onPrevStep,
   children,
@@ -50,7 +47,7 @@ export function ThreeDCard({
           <CardItem
             translateZ={20}
             as="button"
-            onClick={onNextStep} // Call onNextStep function on button click
+            onClick={onNextStep}
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
             Next Step

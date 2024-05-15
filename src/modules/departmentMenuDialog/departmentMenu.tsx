@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useDepartmentModal } from "@/store/departmentModalStore";
+import { useDepartmentModal } from "@/stores/departmentModalStore";
 import { Menu as MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,14 +22,7 @@ const departmentData: IDepartmentData[] = [
     direction: 2,
     bgImgUrl: "/images/gun.jpeg",
   },
-  //   {
-  //     name: "Gamification",
-  //     cluster: "crime-security",
-  //     x: 2,
-  //     z: 1,
-  //     direction: 2,
-  //     bgImgUrl: "/images/driving.jpeg",
-  //   },
+
   {
     name: "civil defense",
     cluster: "civil-defense",
@@ -38,14 +31,6 @@ const departmentData: IDepartmentData[] = [
     direction: 2,
     bgImgUrl: "/images/fire.jpeg",
   },
-  //   {
-  //     name: "Super Market",
-  //     cluster: "supermarket",
-  //     x: 0,
-  //     z: -3,
-  //     direction: 2,
-  //     bgImgUrl: "/images/driving.jpeg",
-  //   },
   {
     name: "Policing General Head Quarter",
     cluster: "Policing",
