@@ -1,21 +1,33 @@
 import { cn } from "@/lib/utils";
+import { useDepartmentServicesModal } from "@/store/departmentServicesModalStore";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+type TItem = {
+  title: string;
+  icon: React.ReactNode;
+  description: string;
+  link: string;
+};
 
 export const HoverEffect = ({
   items,
   className,
 }: {
-  items: {
-    title: string;
-    icon: React.ReactNode;
-    description: string;
-    link: string;
-  }[];
+  items: TItem[];
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { setIsOpen } = useDepartmentServicesModal();
+
+  const router = useRouter();
+
+  const handleClick = (item: TItem) => {
+    setIsOpen(false);
+    router.push(item.link);
+  };
 
   return (
     <div
@@ -25,12 +37,12 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <Link
-          href={item?.link}
-          key={item?.link}
+        <div
+          key={idx}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          onClick={() => handleClick(item)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
@@ -54,7 +66,7 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-        </Link>
+        </div>
       ))}
     </div>
   );

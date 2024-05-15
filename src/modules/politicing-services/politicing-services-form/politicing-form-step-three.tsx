@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   CardTitle,
@@ -12,10 +12,11 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormStepStore";
+import SuccessPaymentAlert from "../success-payment-alert";
 
 export default function PoliticingFormStepThree() {
-  const { setCurrentStep, handleNextStep, handlePrevStep } =
-    usePoliticingFormStepStore();
+  const { handlePrevStep } = usePoliticingFormStepStore();
+  const [showAlert, setShowAlert] = useState<boolean>(false);
   return (
     <>
       <Card className="w-full  mx-auto bg-transparent">
@@ -68,10 +69,12 @@ export default function PoliticingFormStepThree() {
         <Button variant="ghost" onClick={handlePrevStep} type="submit">
           Previous
         </Button>
-        <Button type="submit" onClick={handleNextStep}>
+        <Button type="submit" onClick={() => setShowAlert(true)}>
           Pay
         </Button>
       </div>
+
+      <SuccessPaymentAlert showAlert={showAlert} setShowAlert={setShowAlert} />
     </>
   );
 }

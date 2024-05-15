@@ -26,7 +26,7 @@ export default function LandingPage() {
         />
         <h1
           className={cn(
-            "md:text-6xl text-xl font-bold text-white relative z-20 m-0"
+            "md:text-6xl text-xl font-bold text-white relative z-20 text-center m-0"
           )}
         >
           Welcome to <span className="text-[#986d19]">MOI City</span>

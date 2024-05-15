@@ -8,6 +8,7 @@ interface TPoliticingFormStepStore {
 
 	handleNextStep: () => void;
 	handlePrevStep: () => void;
+	handleResetStep: () => void;
 }
 
 export const usePoliticingFormStepStore = create<TPoliticingFormStepStore>((set) => ({
@@ -17,6 +18,9 @@ export const usePoliticingFormStepStore = create<TPoliticingFormStepStore>((set)
 	handleNextStep: () => set((state) => ({ currentStep: state.currentStep + 1 })),
 	handlePrevStep: () => set((state) => ({
 		currentStep: state.currentStep - 1
-	})
-	)
+	})),
+	handleResetStep: () => set((state) => ({
+		currentStep: 1,
+	}))
+
 }))
