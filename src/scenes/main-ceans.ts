@@ -121,7 +121,6 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 
 
 				if (child.name.includes("Natures_Cube")) {
-					// console.log("child.name ", child.name)
 					child.userData.details = {};
 
 					// Create a sign mesh
@@ -152,8 +151,6 @@ function enforceCameraHeight(camera) {
 	}
 	if (camera.position.y > 70) {  // Minimum 10 units above the ground or any object
 		camera.position.y = 70;
-		// camera.position.z = 70;
-		// camera.position.x = 70;
 	}
 }
 
