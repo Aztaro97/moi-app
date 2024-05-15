@@ -2,19 +2,11 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useDepartmentModal } from "@/store/departmentModalStore";
-import { Menu as MenuIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { useDepartmentModal } from "@/stores/departmentModalStore";
 import { useState } from "react";
 import DepartmentMenu from "./departmentMenu";
 import GameSetting from "@/components/gameSetting";

@@ -19,7 +19,7 @@ export const cluster = [
 	{ x: 2, z: 0, cluster: clusterNames[2], direction: SOUTH },
 	{ x: 2, z: -1, cluster: clusterNames[3], direction: SOUTH },
 	{ x: 2, z: -2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: 2, z: -3, cluster: clusterNames[1], direction: SOUTH },
+	{ x: 2, z: -3, cluster: clusterNames[5], direction: SOUTH },
 	{ x: 2, z: -4, cluster: clusterNames[2], direction: SOUTH },
 	{ x: 2, z: -5, cluster: clusterNames[3], direction: SOUTH },
 	//second line
@@ -51,11 +51,11 @@ export const cluster = [
 	{ x: -1, z: -5, cluster: clusterNames[15], direction: SOUTH },
 	// fifth line
 	{ x: -2, z: 2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: -2, z: 1, cluster: clusterNames[1], direction: SOUTH },
+	{ x: -2, z: 1, cluster: clusterNames[5], direction: SOUTH },
 	{ x: -2, z: 0, cluster: clusterNames[2], direction: SOUTH },
 	{ x: -2, z: -1, cluster: clusterNames[3], direction: SOUTH },
 	{ x: -2, z: -2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: -2, z: -3, cluster: clusterNames[1], direction: SOUTH },
+	{ x: -2, z: -3, cluster: clusterNames[5], direction: SOUTH },
 	{ x: -2, z: -4, cluster: clusterNames[2], direction: SOUTH },
 	{ x: -2, z: -5, cluster: clusterNames[3], direction: SOUTH },
 	// sixth line
@@ -94,10 +94,7 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 		const boxSize = box.getSize(new THREE.Vector3()).length();
 		const boxCenter = box.getCenter(new THREE.Vector3());
 
-		// Set camera to top-down view
-		// camera.position.set(boxSize/2, boxSize/1.3 , boxSize/1.7);
 		camera.rotation.set(Math.PI / 4, Math.PI, 0);
-
 
 		controls.maxDistance = boxSize * 5;
 		camera.position.copy(boxCenter);
@@ -123,10 +120,7 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 				if (child.name.includes("Natures_Cube")) {
 					child.userData.details = {};
 
-					// // Create a sign mesh
-					// const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
-					// const signMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
-					// const signMesh = new THREE.Mesh(signGeometry, signMaterial);
+
 					signMesh.position.set(0, 15, 0); // Adjust position as needed
 					child.add(signMesh);
 

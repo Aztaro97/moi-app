@@ -7,7 +7,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { Button } from "@/components/ui/button";
 import { DepartmentMenuModal } from "@/modules/departmentMenuDialog";
-import { useDepartmentModal } from "@/store/departmentModalStore";
+import { useDepartmentModal } from "@/stores/departmentModalStore";
 import DepartmentServicesModal from "@/modules/departmentServicesModal";
 
 export default function Home() {

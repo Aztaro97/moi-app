@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useDepartmentServicesModal } from "@/store/departmentServicesModalStore";
+import { useDepartmentServicesModal } from "@/stores/departmentServicesModalStore";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
