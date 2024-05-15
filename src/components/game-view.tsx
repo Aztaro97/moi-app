@@ -74,10 +74,21 @@ const GameView = () => {
       //   const intersects = raycaster.intersectObjects(interactiveObjects);
       const intersects = raycaster.intersectObjects(scene?.children, true);
 
+      const departmentServices = [
+        "Building_House_03_color01_Cylinder.000",
+        "Building_Super Market_Cube.025",
+        "Building_Restaurant_Cube.014",
+        "Building_House_01_color01_Cube.024",
+        "Props_BillBoard_large_Cube",
+        "Building_Residential_color01_Cube.013",
+      ];
+
       if (intersects.length > 0) {
         const object = intersects[0].object;
-        console.log("Cluster ID:", object.userData);
-        if (object.userData.name === "Building_House_03_color01_Cylinder.000") {
+        // console.log("Cluster ID:", object.userData);
+        if (
+          departmentServices.find((service) => service === object.userData.name)
+        ) {
           setIsOpenService(true);
         }
         // Trigger your onClick logic here
@@ -105,7 +116,7 @@ const GameView = () => {
       if (intersects.length > 0) {
         const object = intersects[0].object;
 
-        // console.log("Cluster ID:", object.userData);
+        console.log("Cluster ID:", object.userData);
         // Update cursor or show tooltip if hovering over a sign
         if (object.parent && object.parent.userData.details) {
           document.body.style.cursor = "pointer";
@@ -156,7 +167,6 @@ const GameView = () => {
     setScene(newScene);
     setCamera(newCamera);
     setControls(newControls);
-	
 
     renderScene(
       newScene,
