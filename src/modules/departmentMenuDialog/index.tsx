@@ -50,30 +50,28 @@ export function DepartmentMenuModal() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-[1000px] w-full bg-background text-foreground p-8">
         <DialogHeader>
-          <DialogTitle className="text-white text-5xl mb-10">
+          <DialogTitle className="text-white text-5xl mb-10 uppercase">
             Main Menu
           </DialogTitle>
         </DialogHeader>
-        <div className=" !w-[1000px] h-full grid grid-cols-[1fr_5fr] gap-10">
-          <div className="">
-            <ul className="flex flex-col gap-y-5">
-              {navigation.map((item, index) => (
-                <li key={index}>
-                  <Button
-                    onClick={() => setActiveTab(item)}
-                    className={`min-w-[150px] uppercase text-xl ${
-                      activeTab.name === item.name
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-background text-foreground"
-                    }`}
-                  >
-                    {item.name}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-h-[600px]">
+        <div className="w-full h-full grid grid-cols-1 lg:grid-cols-[1fr_5fr] gap-10">
+          <ul className="flex flex-row lg:flex-col gap-5">
+            {navigation.map((item, index) => (
+              <li key={index}>
+                <Button
+                  onClick={() => setActiveTab(item)}
+                  className={`min-w-[100px] lg:min-w-[150px] uppercase text-xl ${
+                    activeTab.name === item.name
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-background text-foreground"
+                  }`}
+                >
+                  {item.name}
+                </Button>
+              </li>
+            ))}
+          </ul>
+          <div className="max-h-[500px] h-full overflow-y-scroll lg:overflow-y-hidden">
             <h1 className="text-4xl uppercase font-bold border-b-4 border-solid  border-primary max-w-max mb-5">
               {activeTab.heading}
             </h1>

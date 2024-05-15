@@ -22,14 +22,14 @@ const departmentData: IDepartmentData[] = [
     direction: 2,
     bgImgUrl: "/images/jail.jpeg",
   },
-  {
-    name: "Gamification",
-    cluster: "crime-security",
-    x: 2,
-    z: 1,
-    direction: 2,
-    bgImgUrl: "/images/driving.jpeg",
-  },
+//   {
+//     name: "Gamification",
+//     cluster: "crime-security",
+//     x: 2,
+//     z: 1,
+//     direction: 2,
+//     bgImgUrl: "/images/driving.jpeg",
+//   },
   {
     name: "civil defense",
     cluster: "civil-defense",
@@ -70,11 +70,27 @@ const departmentData: IDepartmentData[] = [
     direction: 2,
     bgImgUrl: "/images/traffic.jpeg",
   },
+  {
+    name: "Public Services",
+    cluster: "traffic",
+    x: -3,
+    z: -4,
+    direction: 2,
+    bgImgUrl: "/images/public.jpeg",
+  },
+//   {
+//     name: "Other Services",
+//     cluster: "traffic",
+//     x: -3,
+//     z: -4,
+//     direction: 2,
+//     bgImgUrl: "/images/others.jpeg",
+//   },
 ];
 
 export default function DepartmentMenu() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
       {departmentData.map((department, index) => (
         <CardItem key={index} {...department} />
       ))}
