@@ -24,7 +24,9 @@ export default function TutorialVideo({ currentStep, steps }: Props) {
   return (
     <div className="p-4 border-r h-full  bg-[#111]">
       <h1 className="text-3xl mb-5">
-        <span className="text-primary leading-relaxed">Tutorial:</span>{" "}
+        <span className="text-primary leading-relaxed font-bold">
+          Tutorial:
+        </span>{" "}
         {currentTuto?.title}
       </h1>
       {currentTuto && currentTuto.title && (

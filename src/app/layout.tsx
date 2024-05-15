@@ -15,12 +15,17 @@ const myFont = localFont({
       style: "normal",
     },
     {
-      path: "../../public/assets/fonts/League-ThinInline.otf",
-      weight: "400",
+      path: "../../public/assets/fonts/Roboto-Bold.ttf",
+      weight: "700",
       style: "normal",
     },
     {
-      path: "../../public/assets/fonts/League-Inline.otf",
+      path: "../../public/assets/fonts/Roboto-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/Roboto-Regular.ttf",
       weight: "400",
       style: "normal",
     },

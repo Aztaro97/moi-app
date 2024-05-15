@@ -24,7 +24,7 @@ export default function PoliticingService() {
   return (
     <div className="px-10">
       <PoliticingProgressBar currentStep={currentStep} />
-      <h1>Service Description</h1>
+      <h1 className="font-bold mb-1 text-lg">Service Description</h1>
       <p className="text-sm">
         By this service, you may apply to create a new traffic file &quot;First
         time&quot;, or apply to create another traffic file &quot;To obtain a
