@@ -15,7 +15,7 @@ export const cluster = [
 	{ x: 1, z: 0, cluster: "road" },
 	// first line 
 	{ x: 2, z: 2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: 2, z: 1, cluster: clusterNames[1], direction: SOUTH },
+	{ x: 2, z: 1, cluster: clusterNames[5], direction: SOUTH },
 	{ x: 2, z: 0, cluster: clusterNames[2], direction: SOUTH },
 	{ x: 2, z: -1, cluster: clusterNames[3], direction: SOUTH },
 	{ x: 2, z: -2, cluster: clusterNames[0], direction: SOUTH },
@@ -25,13 +25,13 @@ export const cluster = [
 	//second line
 	{ x: 1, z: 2, cluster: clusterNames[14], direction: SOUTH },
 	{ x: 1, z: 1, cluster: clusterNames[7], direction: SOUTH },
-	{ x: 1, z: 0,  cluster: clusterNames[20], direction: SOUTH },
+	{ x: 1, z: 0, cluster: clusterNames[20], direction: SOUTH },
 	{ x: 1, z: -1, cluster: clusterNames[19], direction: SOUTH },//Traffic service
 	{ x: 1, z: -2, cluster: clusterNames[14], direction: SOUTH },//other services
 	{ x: 1, z: -3, cluster: clusterNames[7], direction: SOUTH },
 	{ x: 1, z: -4, cluster: clusterNames[8], direction: SOUTH },
 	{ x: 1, z: -5, cluster: clusterNames[9], direction: SOUTH },
-//third line - 3rd item is our center item
+	//third line - 3rd item is our center item
 	{ x: 0, z: 2, cluster: clusterNames[5], direction: SOUTH },
 	{ x: 0, z: 1, cluster: clusterNames[10], direction: SOUTH },
 	{ x: 0, z: 0, cluster: clusterNames[4], direction: SOUTH },// civil defense
@@ -40,7 +40,7 @@ export const cluster = [
 	{ x: 0, z: -3, cluster: clusterNames[10], direction: SOUTH },
 	{ x: 0, z: -4, cluster: clusterNames[12], direction: SOUTH },
 	{ x: 0, z: -5, cluster: clusterNames[13], direction: SOUTH },
-// fourth line
+	// fourth line
 	{ x: -1, z: 2, cluster: clusterNames[6], direction: SOUTH },
 	{ x: -1, z: 1, cluster: clusterNames[11], direction: SOUTH },
 	{ x: -1, z: 0, cluster: clusterNames[12], direction: SOUTH },//crime security
@@ -49,7 +49,7 @@ export const cluster = [
 	{ x: -1, z: -3, cluster: clusterNames[11], direction: SOUTH },
 	{ x: -1, z: -4, cluster: clusterNames[14], direction: SOUTH },
 	{ x: -1, z: -5, cluster: clusterNames[15], direction: SOUTH },
-// fifth line
+	// fifth line
 	{ x: -2, z: 2, cluster: clusterNames[0], direction: SOUTH },
 	{ x: -2, z: 1, cluster: clusterNames[1], direction: SOUTH },
 	{ x: -2, z: 0, cluster: clusterNames[2], direction: SOUTH },
@@ -58,7 +58,7 @@ export const cluster = [
 	{ x: -2, z: -3, cluster: clusterNames[1], direction: SOUTH },
 	{ x: -2, z: -4, cluster: clusterNames[2], direction: SOUTH },
 	{ x: -2, z: -5, cluster: clusterNames[3], direction: SOUTH },
-// sixth line
+	// sixth line
 	{ x: -3, z: 2, cluster: clusterNames[4], direction: SOUTH },
 	{ x: -3, z: 1, cluster: clusterNames[7], direction: SOUTH },
 	{ x: -3, z: 0, cluster: clusterNames[8], direction: SOUTH },
@@ -67,7 +67,7 @@ export const cluster = [
 	{ x: -3, z: -3, cluster: clusterNames[7], direction: SOUTH },
 	{ x: -3, z: -4, cluster: clusterNames[16], direction: SOUTH },
 	{ x: -3, z: -5, cluster: clusterNames[9], direction: SOUTH },
-// seventh line
+	// seventh line
 	{ x: -4, z: 2, cluster: clusterNames[5], direction: SOUTH },
 	{ x: -4, z: 1, cluster: clusterNames[10], direction: SOUTH },
 	{ x: -4, z: 0, cluster: clusterNames[14], direction: SOUTH },
@@ -76,7 +76,7 @@ export const cluster = [
 	{ x: -4, z: -3, cluster: clusterNames[10], direction: SOUTH },
 	{ x: -4, z: -4, cluster: clusterNames[14], direction: SOUTH },
 	{ x: -4, z: -5, cluster: clusterNames[13], direction: SOUTH },
-// eight line
+	// eight line
 	{ x: -5, z: 2, cluster: clusterNames[6], direction: SOUTH },
 	{ x: -5, z: 1, cluster: clusterNames[11], direction: SOUTH },
 	{ x: -5, z: 0, cluster: clusterNames[14], direction: SOUTH },
@@ -123,10 +123,10 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 				if (child.name.includes("Natures_Cube")) {
 					child.userData.details = {};
 
-					// Create a sign mesh
-					const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
-					const signMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
-					const signMesh = new THREE.Mesh(signGeometry, signMaterial);
+					// // Create a sign mesh
+					// const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
+					// const signMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+					// const signMesh = new THREE.Mesh(signGeometry, signMaterial);
 					signMesh.position.set(0, 15, 0); // Adjust position as needed
 					child.add(signMesh);
 
@@ -141,7 +141,7 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 
 		scene.add(gltf.scene);
 	});
-  }  
+}
 
 
 function enforceCameraHeight(camera) {

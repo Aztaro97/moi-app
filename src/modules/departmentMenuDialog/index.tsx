@@ -9,20 +9,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-// export const departmentData = [
-//   "house2",
-//   "shoparea",
-//   "house",
-//   "apartments",
-//   "shops",
-//   "fastfood",
-//   "house3",
-//   "supermarket",
-//   "coffeeshop",
-//   "residence",
-//   "supermarket",
-// ];
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useDepartmentModal } from "@/store/departmentModalStore";
@@ -83,7 +69,7 @@ export function DepartmentMenuModal() {
               ) : activeTab.name === "E-Service" ? (
                 <DepartmentMenu />
               ) : (
-                <GameSetting />
+                activeTab.name === "Settings" && <GameSetting />
               )}
             </div>
           </div>
