@@ -5,7 +5,7 @@
 <br />
 
  <p align="center">
-  <a><img src="https://img.shields.io/github/stars/aztaro97/42-daily-dev" /></a>
+  <a><img src="https://img.shields.io/github/stars/aztaro97/moi-app" /></a>
  <a><img src="https://img.shields.io/badge/LICENSE-MIT-brightgreen" /></a>
  </p>
 </div>
@@ -43,34 +43,21 @@ So join us and discover how we can transform the mundane into something fun!
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Aztaro97/42-daily-dev.git
+   git clone https://github.com/Aztaro97/moi-app.git
    ```
 2. Go to the project directory
 	```sh
-	cd 42-daily-dev
+	cd moi-app
 	```
 3. Install NPM packages
    ```sh
-   pnpm install
+   npm install
    ```
-4. Set up your .env file
+4. Run the development server
    ```sh
-   cp .env.example .env
+   npm dev
    ```
-   Then fill in the required information
-5. Apply migrations to database
-	```
-	pnpm db:migrate
-	```
-6. Push schema changes to your database
-	```
-	pnpm db:push
-	```
-7. Run the development server
-   ```sh
-   pnpm dev
-   ```
-8. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
 
@@ -97,8 +84,3 @@ Contributions of any kind are welcome!
 -  Spread the word and share the project with your friends
 -  Support the project by starring the repo
 
-
-<!-- LICENSE -->
-## 🔑 License
-
-Distribution under [MIT LICENSE](https://github.com/Aztaro97/42-daily-App/blob/main/LICENSE) , See `LICENSE` for more informations.
