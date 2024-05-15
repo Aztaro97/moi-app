@@ -7,7 +7,7 @@ import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormS
 import PoliticingProgressBar from "./politicing-progress-bar";
 
 export default function PoliticingService() {
-  const { setCurrentStep, currentStep } = usePoliticingFormStepStore();
+  const { currentStep } = usePoliticingFormStepStore();
 
   const renderStep = () => {
     switch (currentStep) {

@@ -137,7 +137,6 @@ const GameView = () => {
       1000
     );
     newCamera.position.set(80, 140, 80);
-    // newCamera.position.y = 200;
 
     const newControls = new OrbitControls(newCamera, canvasRef.current);
     newControls.enableDamping = true; // Optional, but this gives a nice
