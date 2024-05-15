@@ -90,54 +90,56 @@ export const cluster = [
 
 function loadClusters({ x, z, cluster, direction }, scene, camera, controls, gltfLoader, setInteractiveObjects) {
 	gltfLoader.load(`/assets/gltf/${cluster}.gltf`, (gltf) => {
-		const box = new THREE.Box3().setFromObject(gltf.scene);
-		const boxSize = box.getSize(new THREE.Vector3()).length();
-		const boxCenter = box.getCenter(new THREE.Vector3());
+	  const box = new THREE.Box3().setFromObject(gltf.scene);
+	  const boxSize = box.getSize(new THREE.Vector3()).length();
+	  const boxCenter = box.getCenter(new THREE.Vector3());
+  
+	  controls.maxDistance = boxSize * 5;
 
-		controls.maxDistance = boxSize * 5;
-		camera.position.copy(boxCenter);
-		camera.position.x += boxSize / 8.0;
-		camera.position.y += boxSize / 10.0;
-		camera.position.z += boxSize / 5.0;
-		camera.lookAt(boxCenter);
-		camera.near = boxSize / 100;
-		camera.far = boxSize * 200;
-		camera.updateProjectionMatrix();
-		scene.add(camera);
-
-		controls.target.copy(boxCenter);
-		controls.update();
-
-		gltf.scene.traverse((child) => {
-			if (child.isMesh) {
-				child.receiveShadow = true;
-				child.castShadow = true;
-				child.material.depthWrite = !child.material.transparent;
-
-
-				if (child.name.includes("Natures_Cube")) {
-					// console.log("child.name ", child.name)
-					child.userData.details = {};
-
-					// Create a sign mesh
-					const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
-					const signMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
-					const signMesh = new THREE.Mesh(signGeometry, signMaterial);
-					signMesh.position.set(0, 15, 0); // Adjust position as needed
-					child.add(signMesh);
-
-					// Add the sign mesh to the interactive objects array
-					setInteractiveObjects(signMesh);
-				}
-			}
-		});
-
-		gltf.scene.position.set(x * 60, 0, z * 60);
-		if (direction) gltf.scene.rotation.y = Math.PI * direction;
-
-		scene.add(gltf.scene);
+	  
+  
+	  // Set camera to top-down view
+	  camera.position.set(boxSize/2, boxSize/1.3 , boxSize/1.7);
+	  camera.rotation.set(Math.PI / 4, Math.PI, 0);
+  
+	  camera.near = boxSize / 100;
+	  camera.far = boxSize * 200;
+	  camera.updateProjectionMatrix();
+	  scene.add(camera);
+  
+	  controls.target.copy(boxCenter);
+	  controls.update();
+  
+	  gltf.scene.traverse((child) => {
+		if (child.isMesh) {
+		  child.receiveShadow = true;
+		  child.castShadow = true;
+		  child.material.depthWrite = !child.material.transparent;
+  
+		  if (child.name.includes("Natures_Cube")) {
+			// console.log("child.name ", child.name)
+			child.userData.details = {};
+  
+			// Create a sign mesh
+			const signGeometry = new THREE.PlaneGeometry(10, 5); // Adjust size as needed
+			const signMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+			const signMesh = new THREE.Mesh(signGeometry, signMaterial);
+			signMesh.position.set(0, 15, 0); // Adjust position as needed
+			child.add(signMesh);
+  
+			// Add the sign mesh to the interactive objects array
+			setInteractiveObjects(signMesh);
+		  }
+		}
+	  });
+  
+	  gltf.scene.position.set(x * 60, 0, z * 60);
+	  if (direction) gltf.scene.rotation.y = Math.PI * direction;
+  
+	  scene.add(gltf.scene);
 	});
-}
+  }
+  
 
 
 function enforceCameraHeight(camera) {
@@ -155,7 +157,7 @@ export function renderScene(scene, camera, renderer, controls, gltfLoader, setIn
 	renderer.gammaInput = renderer.gammaOutput = true;
 	renderer.gammaFactor = 2.0;
 	renderer.outputEncoding = THREE.sRGBEncoding;
-	renderer.setClearColor(0xcccccc);
+	renderer.setClearColor(new THREE.Color(0.5, 0.7, 1));//sky color
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
