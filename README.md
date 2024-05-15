@@ -23,7 +23,8 @@ So join us and discover how we can transform the mundane into something fun!
 
 ## 🚀 Tech Stack & Tools
 - [Next.js](https://nextjs.org/?ref=cal.com)
-- [Tailwind CSS](https://tailwindcss.com/?ref=cal.com)
+- [ShadCn UI](https://tailwindcss.com/?ref=cal.com)
+- [Tailwind CSS](https://ui.shadcn.com/)
 - [Zod](https://github.com/colinhacks/zod)
 - [React Hook Form](https://react-hook-form.com)
 - [zustand](https://zustand-demo.pmnd.rs/)
@@ -32,7 +33,8 @@ So join us and discover how we can transform the mundane into something fun!
 - [Canva](https://www.canva.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vercel](https://vercel.com/)
-- [React](https://react.dev/)
+- [React Player](https://cookpete.com/react-player/)
+- [Cloudinary](https://https://cloudinary.com/)
 
 
 

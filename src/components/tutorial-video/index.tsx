@@ -13,14 +13,9 @@ type TTutoStep = {
 interface Props {
   steps: TTutoStep[];
   currentStep: number;
-  setCurrentStep: (step: number) => void;
 }
 
-export default function TutorialVideo({
-  currentStep,
-  setCurrentStep,
-  steps,
-}: Props) {
+export default function TutorialVideo({ currentStep, steps }: Props) {
   const [currentTuto, setCurrentTuto] = useState<TTutoStep | null>(null);
 
   useEffect(() => {
