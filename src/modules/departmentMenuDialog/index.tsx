@@ -31,6 +31,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DepartmentMenu from "./departmentMenu";
+import GameSetting from "@/components/gameSetting";
+import PauseGame from "@/components/pauseGame";
 
 const navigation = [
   { name: "Play", heading: "MOI city Tour", href: "#", current: true },
@@ -71,17 +73,17 @@ export function DepartmentMenuModal() {
               </li>
             ))}
           </ul>
-          <div className="max-h-[500px] h-full overflow-y-scroll lg:overflow-y-hidden">
+          <div className="h-[500px] h-full overflow-y-scroll lg:overflow-y-hidden">
             <h1 className="text-4xl uppercase font-bold border-b-4 border-solid  border-primary max-w-max mb-5">
               {activeTab.heading}
             </h1>
             <div>
               {activeTab.name === "Play" ? (
-                <div>Hello word</div>
+                <PauseGame />
               ) : activeTab.name === "E-Service" ? (
                 <DepartmentMenu />
               ) : (
-                <div>Hello word</div>
+                <GameSetting />
               )}
             </div>
           </div>
