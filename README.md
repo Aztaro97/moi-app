@@ -1,6 +1,6 @@
 <!-- PROJECT INFOS -->
 <div align="center">
- <a href="https://github.com/Aztaro97/MOI-APP"><img src="" height="80px" /></a>
+ 
 
 <br />
 
@@ -57,7 +57,7 @@ So join us and discover how we can transform the mundane into something fun!
    ```
 4. Run the development server
    ```sh
-   npm dev
+   npm run dev
    ```
 5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
