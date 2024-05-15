@@ -26,10 +26,11 @@ export default function PoliticingService() {
       <PoliticingProgressBar currentStep={currentStep} />
       <h1>Service Description</h1>
       <p className="text-sm">
-        By this service, you may apply to create a new traffic file "First
-        time", or apply to create another traffic file "To obtain a new traffic
-        category license", Please note that once the application is approved,
-        you must return to the service page to complete your application.
+        By this service, you may apply to create a new traffic file &quot;First
+        time&quot;, or apply to create another traffic file &quot;To obtain a
+        new traffic category license&quot;, Please note that once the
+        application is approved, you must return to the service page to complete
+        your application.
       </p>
       <div className="w-full mt-10">{renderStep()}</div>
     </div>
