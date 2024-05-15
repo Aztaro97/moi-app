@@ -19,7 +19,7 @@ export const cluster = [
 	{ x: 2, z: 0, cluster: clusterNames[2], direction: SOUTH },
 	{ x: 2, z: -1, cluster: clusterNames[3], direction: SOUTH },
 	{ x: 2, z: -2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: 2, z: -3, cluster: clusterNames[1], direction: SOUTH },
+	{ x: 2, z: -3, cluster: clusterNames[5], direction: SOUTH },
 	{ x: 2, z: -4, cluster: clusterNames[2], direction: SOUTH },
 	{ x: 2, z: -5, cluster: clusterNames[3], direction: SOUTH },
 	//second line
@@ -51,11 +51,11 @@ export const cluster = [
 	{ x: -1, z: -5, cluster: clusterNames[15], direction: SOUTH },
 	// fifth line
 	{ x: -2, z: 2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: -2, z: 1, cluster: clusterNames[1], direction: SOUTH },
+	{ x: -2, z: 1, cluster: clusterNames[5], direction: SOUTH },
 	{ x: -2, z: 0, cluster: clusterNames[2], direction: SOUTH },
 	{ x: -2, z: -1, cluster: clusterNames[3], direction: SOUTH },
 	{ x: -2, z: -2, cluster: clusterNames[0], direction: SOUTH },
-	{ x: -2, z: -3, cluster: clusterNames[1], direction: SOUTH },
+	{ x: -2, z: -3, cluster: clusterNames[5], direction: SOUTH },
 	{ x: -2, z: -4, cluster: clusterNames[2], direction: SOUTH },
 	{ x: -2, z: -5, cluster: clusterNames[3], direction: SOUTH },
 	// sixth line
