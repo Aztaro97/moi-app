@@ -131,7 +131,7 @@ const GameView = () => {
     newScene.background = new THREE.Color("#9FE3FA");
 
     const newCamera = new THREE.PerspectiveCamera(
-      50,
+      52,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
@@ -157,6 +157,7 @@ const GameView = () => {
     setScene(newScene);
     setCamera(newCamera);
     setControls(newControls);
+	
 
     renderScene(
       newScene,

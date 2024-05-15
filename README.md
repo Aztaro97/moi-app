@@ -43,30 +43,17 @@ So join us and discover how we can transform the mundane into something fun!
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Aztaro97/42-daily-dev.git
+   git clone https://github.com/Aztaro97/moi-app
    ```
 2. Go to the project directory
 	```sh
-	cd 42-daily-dev
+	cd moi-app
 	```
 3. Install NPM packages
    ```sh
    pnpm install
    ```
-4. Set up your .env file
-   ```sh
-   cp .env.example .env
-   ```
-   Then fill in the required information
-5. Apply migrations to database
-	```
-	pnpm db:migrate
-	```
-6. Push schema changes to your database
-	```
-	pnpm db:push
-	```
-7. Run the development server
+4. Run the development server
    ```sh
    pnpm dev
    ```

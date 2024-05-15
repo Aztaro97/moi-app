@@ -3,7 +3,7 @@ export const clusterNames = [
 	"house2",
 	"shoparea",
 	"house",
-	"civil-defense",
+	"civildefense",
 	"shops",
 	"fastfood",
 	"house3",
@@ -11,12 +11,14 @@ export const clusterNames = [
 	"gas",
 	"supermarket",
 	"coffeeshop",
-	"crime-security",
+	"crimesecurity",
 	"bus",
 	"park",
 	"supermarket",
 	"Policing",
-	"PUNITIVE",
+	"punitive",
 	"apartments",
-	"traffic"
+	"traffic",
+	"otherservices",
+
 ];
