@@ -14,7 +14,8 @@ import { Button } from "@/components/ui/button";
 import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormStepStore";
 
 export default function PoliticingFormStepThree() {
-  const { setCurrentStep } = usePoliticingFormStepStore();
+  const { setCurrentStep, handleNextStep, handlePrevStep } =
+    usePoliticingFormStepStore();
   return (
     <>
       <Card className="w-full  mx-auto bg-transparent">
@@ -64,10 +65,12 @@ export default function PoliticingFormStepThree() {
         </CardContent>
       </Card>
       <div className="flex w-full justify-between items-center gap-x-5 mt-10">
-        <Button variant="ghost" onClick={() => setCurrentStep(2)} type="submit">
+        <Button variant="ghost" onClick={handlePrevStep} type="submit">
           Previous
         </Button>
-        <Button type="submit">Pay</Button>
+        <Button type="submit" onClick={handleNextStep}>
+          Pay
+        </Button>
       </div>
     </>
   );

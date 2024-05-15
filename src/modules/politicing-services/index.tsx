@@ -4,7 +4,6 @@ import PoliticingFormStepOne from "@/modules/politicing-services/politicing-serv
 import PoliticingFormStepThree from "@/modules/politicing-services/politicing-services-form/politicing-form-step-three";
 import PoliticingFormStepTwo from "@/modules/politicing-services/politicing-services-form/politicing-form-step-two";
 import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormStepStore";
-import Progress from "@/components/Progress";
 import PoliticingProgressBar from "./politicing-progress-bar";
 
 export default function PoliticingService() {
@@ -23,7 +22,7 @@ export default function PoliticingService() {
     }
   };
   return (
-    <div className="">
+    <div className="px-10">
       <PoliticingProgressBar currentStep={currentStep} />
       <h1>Service Description</h1>
       <p className="text-sm">

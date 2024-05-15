@@ -136,7 +136,8 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export default function PoliticingFormStepTwo() {
-  const { setCurrentStep } = usePoliticingFormStepStore();
+  const { setCurrentStep, handleNextStep, handlePrevStep } =
+    usePoliticingFormStepStore();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -261,10 +262,10 @@ export default function PoliticingFormStepTwo() {
         </div>
       </div>
       <div className="flex justify-between items-center mt-10 w-full">
-        <Button variant="outline" size="sm" onClick={() => setCurrentStep(1)}>
+        <Button variant="outline" size="sm" onClick={handlePrevStep}>
           Previous
         </Button>
-        <Button className="" type="submit" onClick={() => setCurrentStep(3)}>
+        <Button className="" type="submit" onClick={handleNextStep}>
           Next
         </Button>
       </div>

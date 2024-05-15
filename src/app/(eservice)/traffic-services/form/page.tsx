@@ -3,6 +3,28 @@
 import PoliticingService from "@/modules/politicing-services";
 import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormStepStore";
 import React from "react";
+import TutorialVideo from "@/components/tutorial-video";
+
+const trafficTutorialSteps = [
+  {
+    title: "How to fill application info",
+    description: " ",
+    thumbnail: "/images/fire.jpeg",
+    video: "/videos/demo.mp4",
+  },
+  {
+    title: "Checking restrictions",
+    description: "",
+    thumbnail: "/images/driving.jpeg",
+    video: "/videos/demo.mp4",
+  },
+  {
+    title: "How to make payment",
+    description: "",
+    thumbnail: "/images/gun.jpeg",
+    video: "/videos/demo.mp4",
+  },
+];
 
 const Page: React.FC = () => {
   const { setCurrentStep, currentStep } = usePoliticingFormStepStore();
@@ -17,13 +39,8 @@ const Page: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[2fr_5fr] justify-center items-center min-h-screen">
-      <div className="p-4">
-        <p>
-          Step-1: Please select the vehicle from the list of vehicles and click
-          the next step button
-        </p>
-      </div>
+    <div className="grid grid-cols-1 lg:grid-cols-[3fr_5fr] justify-center items-center min-h-screen">
+      <TutorialVideo steps={trafficTutorialSteps} currentStep={currentStep} />
       <PoliticingService />
     </div>
   );

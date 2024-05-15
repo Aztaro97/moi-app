@@ -30,14 +30,14 @@ import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormS
 import { trafficServiceStepOneSchema } from "@/schema/traffic-services/traffic-service-schema";
 
 export default function PoliticingFormStepOne() {
-  const { setCurrentStep } = usePoliticingFormStepStore();
+  const { setCurrentStep, handleNextStep } = usePoliticingFormStepStore();
   const form = useForm<z.infer<typeof trafficServiceStepOneSchema>>({
     resolver: zodResolver(trafficServiceStepOneSchema),
   });
 
   function onSubmit(values: z.infer<typeof trafficServiceStepOneSchema>) {
     console.log(values);
-    setCurrentStep(2);
+    handleNextStep();
   }
   return (
     <Form {...form}>
