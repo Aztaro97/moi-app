@@ -2,13 +2,11 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +19,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Link from "next/link";
 import {
   emirateStateData,
   gearData,
@@ -30,27 +27,15 @@ import {
   serviceTypeData,
 } from "@/constants/politicingOptionsData";
 import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormStepStore";
-
-const formSchemaOption = z.object({
-  label: z.string(),
-  value: z.string(),
-});
-
-const formSchema = z.object({
-  emirate: formSchemaOption,
-  licenseType: formSchemaOption,
-  serviceType: formSchemaOption,
-  gear: formSchemaOption,
-  type: formSchemaOption,
-});
+import { trafficServiceStepOneSchema } from "@/schema/traffic-services/traffic-service-schema";
 
 export default function PoliticingFormStepOne() {
   const { setCurrentStep } = usePoliticingFormStepStore();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof trafficServiceStepOneSchema>>({
+    resolver: zodResolver(trafficServiceStepOneSchema),
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof trafficServiceStepOneSchema>) {
     console.log(values);
     setCurrentStep(2);
   }
@@ -109,7 +94,7 @@ export default function PoliticingFormStepOne() {
 
         <FormField
           control={form.control}
-          name="licenseType"
+          name="serviceType"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Service Center</FormLabel>
@@ -182,9 +167,11 @@ export default function PoliticingFormStepOne() {
           )}
         />
 
-        <Button className="" type="submit">
-          Next
-        </Button>
+        <div className="flex justify-end items-center">
+          <Button className="" type="submit">
+            Next
+          </Button>
+        </div>
       </form>
     </Form>
   );
