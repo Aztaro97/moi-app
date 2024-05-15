@@ -5,7 +5,7 @@
 <br />
 
  <p align="center">
-  <a><img src="https://img.shields.io/github/stars/aztaro97/42-daily-dev" /></a>
+  <a><img src="https://img.shields.io/github/stars/aztaro97/moi-app" /></a>
  <a><img src="https://img.shields.io/badge/LICENSE-MIT-brightgreen" /></a>
  </p>
 </div>
@@ -23,7 +23,8 @@ So join us and discover how we can transform the mundane into something fun!
 
 ## 🚀 Tech Stack & Tools
 - [Next.js](https://nextjs.org/?ref=cal.com)
-- [Tailwind CSS](https://tailwindcss.com/?ref=cal.com)
+- [ShadCn UI](https://tailwindcss.com/?ref=cal.com)
+- [Tailwind CSS](https://ui.shadcn.com/)
 - [Zod](https://github.com/colinhacks/zod)
 - [React Hook Form](https://react-hook-form.com)
 - [zustand](https://zustand-demo.pmnd.rs/)
@@ -32,7 +33,8 @@ So join us and discover how we can transform the mundane into something fun!
 - [Canva](https://www.canva.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vercel](https://vercel.com/)
-- [React](https://react.dev/)
+- [React Player](https://cookpete.com/react-player/)
+- [Cloudinary](https://https://cloudinary.com/)
 
 
 
@@ -43,7 +45,7 @@ So join us and discover how we can transform the mundane into something fun!
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Aztaro97/moi-app
+   git clone https://github.com/Aztaro97/moi-app.git
    ```
 2. Go to the project directory
 	```sh
@@ -51,13 +53,13 @@ So join us and discover how we can transform the mundane into something fun!
 	```
 3. Install NPM packages
    ```sh
-   pnpm install
+   npm install
    ```
 4. Run the development server
    ```sh
-   pnpm dev
+   npm dev
    ```
-8. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
 
@@ -84,8 +86,3 @@ Contributions of any kind are welcome!
 -  Spread the word and share the project with your friends
 -  Support the project by starring the repo
 
-
-<!-- LICENSE -->
-## 🔑 License
-
-Distribution under [MIT LICENSE](https://github.com/Aztaro97/42-daily-App/blob/main/LICENSE) , See `LICENSE` for more informations.

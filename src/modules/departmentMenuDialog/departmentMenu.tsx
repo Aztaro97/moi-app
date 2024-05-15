@@ -20,16 +20,16 @@ const departmentData: IDepartmentData[] = [
     x: -1,
     z: 0,
     direction: 2,
-    bgImgUrl: "/images/jail.jpeg",
+    bgImgUrl: "/images/gun.jpeg",
   },
-//   {
-//     name: "Gamification",
-//     cluster: "crime-security",
-//     x: 2,
-//     z: 1,
-//     direction: 2,
-//     bgImgUrl: "/images/driving.jpeg",
-//   },
+  //   {
+  //     name: "Gamification",
+  //     cluster: "crime-security",
+  //     x: 2,
+  //     z: 1,
+  //     direction: 2,
+  //     bgImgUrl: "/images/driving.jpeg",
+  //   },
   {
     name: "civil defense",
     cluster: "civil-defense",
@@ -60,7 +60,7 @@ const departmentData: IDepartmentData[] = [
     x: -3,
     z: -4,
     direction: 2,
-    bgImgUrl: "/images/gun.jpeg",
+    bgImgUrl: "/images/jail.jpeg",
   },
   {
     name: "Traffic & Licensing",
@@ -78,14 +78,14 @@ const departmentData: IDepartmentData[] = [
     direction: 2,
     bgImgUrl: "/images/public.jpeg",
   },
-//   {
-//     name: "Other Services",
-//     cluster: "traffic",
-//     x: -3,
-//     z: -4,
-//     direction: 2,
-//     bgImgUrl: "/images/others.jpeg",
-//   },
+  //   {
+  //     name: "Other Services",
+  //     cluster: "traffic",
+  //     x: -3,
+  //     z: -4,
+  //     direction: 2,
+  //     bgImgUrl: "/images/others.jpeg",
+  //   },
 ];
 
 export default function DepartmentMenu() {
