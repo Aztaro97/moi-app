@@ -1,4 +1,6 @@
-export const emirateStateData = [
+import { TOption } from "@/types/options"
+
+export const emirateStateData: TOption[] = [
 	{
 		label: "Abu Dhabi",
 		value: "abu-dhabi"
@@ -29,7 +31,7 @@ export const emirateStateData = [
 	}
 ]
 
-export const licenseTypeData = [
+export const licenseTypeData: TOption[] = [
 	{
 		label: "Commercial",
 		value: "commercial"
@@ -68,7 +70,7 @@ export const licenseTypeData = [
 	}
 ]
 
-export const serviceTypeData = [
+export const serviceTypeData: TOption[] = [
 	{
 		label: "New",
 		value: "new"
@@ -91,7 +93,7 @@ export const serviceTypeData = [
 	}
 ]
 
-export const gearData = [
+export const gearData: TOption[] = [
 	{
 		label: "Sole Proprietorship",
 		value: "sole-proprietorship"
@@ -126,7 +128,7 @@ export const gearData = [
 	}
 ]
 
-export const politicingTypeData = [
+export const politicingTypeData: TOption[] = [
 	{
 		label: "Local",
 		value: "local"

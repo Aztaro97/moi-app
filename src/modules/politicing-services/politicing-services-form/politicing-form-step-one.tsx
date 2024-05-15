@@ -29,6 +29,7 @@ import {
   politicingTypeData,
   serviceTypeData,
 } from "@/constants/politicingOptionsData";
+import { usePoliticingFormStepStore } from "@/stores/services/usePoliticingFormStepStore";
 
 const formSchemaOption = z.object({
   label: z.string(),
@@ -44,12 +45,14 @@ const formSchema = z.object({
 });
 
 export default function PoliticingFormStepOne() {
+  const { setCurrentStep } = usePoliticingFormStepStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    setCurrentStep(2);
   }
   return (
     <Form {...form}>
@@ -179,7 +182,9 @@ export default function PoliticingFormStepOne() {
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button className="" type="submit">
+          Next
+        </Button>
       </form>
     </Form>
   );
