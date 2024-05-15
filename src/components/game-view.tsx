@@ -26,9 +26,9 @@ const GameView = () => {
       if (!camera || !controls) return;
 
       const newPosition = new THREE.Vector3(
-        position.x * 60,
+        position.x * 1,
         100,
-        position.z * 60 + 100
+        position.z * 1 + 100
       );
       const newTarget = new THREE.Vector3(position.x * 60, 60, position.z * 60);
 
@@ -62,7 +62,10 @@ const GameView = () => {
       event.preventDefault();
       if (!camera || !controls || !scene) return;
 
-      const mouse = new THREE.Vector2();
+      const mouse = new THREE.Vector2(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1
+      );
 
       const raycaster = new THREE.Raycaster();
       controls?.update();
@@ -74,16 +77,14 @@ const GameView = () => {
       if (intersects.length > 0) {
         const object = intersects[0].object;
         console.log("Cluster ID:", object.userData);
-        if (object.userData.name === "Residence") {
+        if (object.userData.name === "Building_House_03_color01_Cylinder.000") {
           setIsOpenService(true);
-        } else {
-          setIsOpenService(false);
         }
         // Trigger your onClick logic here
         // onClickCluster(object.userData.clusterId);
       }
     },
-    [camera, setIsOpenService, scene, controls]
+    [camera, scene, controls, interactiveObjects]
   );
 
   const handleHover = useCallback(
@@ -103,7 +104,8 @@ const GameView = () => {
 
       if (intersects.length > 0) {
         const object = intersects[0].object;
-        console.log("Cluster ID:", object.userData);
+
+        // console.log("Cluster ID:", object.userData);
         // Update cursor or show tooltip if hovering over a sign
         if (object.parent && object.parent.userData.details) {
           document.body.style.cursor = "pointer";
@@ -129,14 +131,13 @@ const GameView = () => {
     newScene.background = new THREE.Color("#9FE3FA");
 
     const newCamera = new THREE.PerspectiveCamera(
-      80,
+      50,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    newCamera.position.set(80, 200, 60);    // newCamera.position.y = 200;
-
-
+    newCamera.position.set(80, 140, 80);
+    // newCamera.position.y = 200;
 
     const newControls = new OrbitControls(newCamera, canvasRef.current);
     newControls.enableDamping = true; // Optional, but this gives a nice
@@ -151,7 +152,6 @@ const GameView = () => {
     newControls.enablePan = false;
     newControls.screenSpacePanning = true;
     newControls.maxPolarAngle = Math.PI / 2;
-	
 
     setRenderer(newRenderer);
     setScene(newScene);

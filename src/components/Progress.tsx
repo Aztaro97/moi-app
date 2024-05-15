@@ -12,8 +12,20 @@ const Progress: React.FC<ProgressProps> = ({ currentStep }) => {
         <IconWrapper isActive={currentStep === 1}>
           <ClipboardIcon />
           <div className="mt-2 text-center">
-            <h3 className={`text-sm font-medium ${currentStep === 1 ? 'text-blue-500' : 'text-gray-500'}`}>Step 1</h3>
-            <p className={`text-xs  ${currentStep === 1 ? 'text-blue-500' : 'text-gray-500'}`}>Select Tickets</p>
+            <h3
+              className={`text-sm font-medium ${
+                currentStep === 1 ? "text-blue-500" : "text-gray-500"
+              }`}
+            >
+              Step 1
+            </h3>
+            <p
+              className={`text-xs  ${
+                currentStep === 1 ? "text-blue-500" : "text-gray-500"
+              }`}
+            >
+              Select Tickets
+            </p>
           </div>
         </IconWrapper>
 
@@ -21,8 +33,20 @@ const Progress: React.FC<ProgressProps> = ({ currentStep }) => {
         <IconWrapper isActive={currentStep === 2}>
           <LayersIcon />
           <div className="mt-2 text-center">
-            <h3 className={`text-sm font-medium ${currentStep === 2 ? 'text-blue-500' : 'text-gray-500'}`}>Step 2</h3>
-            <p className={`text-xs  ${currentStep === 2 ? 'text-blue-500' : 'text-gray-500'}`}>Service Summary</p>
+            <h3
+              className={`text-sm font-medium ${
+                currentStep === 2 ? "text-blue-500" : "text-gray-500"
+              }`}
+            >
+              Step 2
+            </h3>
+            <p
+              className={`text-xs  ${
+                currentStep === 2 ? "text-blue-500" : "text-gray-500"
+              }`}
+            >
+              Service Summary
+            </p>
           </div>
         </IconWrapper>
 
@@ -30,8 +54,20 @@ const Progress: React.FC<ProgressProps> = ({ currentStep }) => {
         <IconWrapper isActive={currentStep === 3}>
           <CheckIcon />
           <div className="mt-2 text-center">
-            <h3 className={`text-sm font-medium ${currentStep === 3 ? 'text-blue-500' : 'text-gray-500'}`}>Step 3</h3>
-            <p className={`text-xs  ${currentStep === 3 ? 'text-blue-500' : 'text-gray-500'}`}>Pay Online</p>
+            <h3
+              className={`text-sm font-medium ${
+                currentStep === 3 ? "text-blue-500" : "text-gray-500"
+              }`}
+            >
+              Step 3
+            </h3>
+            <p
+              className={`text-xs  ${
+                currentStep === 3 ? "text-blue-500" : "text-gray-500"
+              }`}
+            >
+              Pay Online
+            </p>
           </div>
         </IconWrapper>
       </div>
@@ -46,7 +82,11 @@ interface IconWrapperProps {
 
 const IconWrapper: React.FC<IconWrapperProps> = ({ children, isActive }) => {
   return (
-    <div className={`flex flex-col items-center ${isActive ? 'text-blue-500' : ''}`}>
+    <div
+      className={`flex flex-col items-center ${
+        isActive ? "text-blue-500" : ""
+      }`}
+    >
       {children}
     </div>
   );

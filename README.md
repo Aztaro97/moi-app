@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- PROJECT INFOS -->
+<div align="center">
+ <a href="https://github.com/Aztaro97/MOI-APP"><img src="" height="80px" /></a>
 
-## Getting Started
+<br />
 
-First, run the development server:
+ <p align="center">
+  <a><img src="https://img.shields.io/github/stars/aztaro97/42-daily-dev" /></a>
+ <a><img src="https://img.shields.io/badge/LICENSE-MIT-brightgreen" /></a>
+ </p>
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- DETAIL ABOUT THE PROJECT -->
+## ✨ About MOI City
+Introducing the MOI CITY website, designed to revolutionize user-friendly access to government services by incorporating gamification.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Although the current website provides brief service descriptions, user manuals, and demo videos to help users complete their requested services, many users still abandon the process midway. This highlights the need for enhanced user engagement.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+MOI CITY fills this gap by integrating a gamification strategy into the process. By providing intuitive, step-by-step instructions that improve user understanding, MOI CITY ensures seamless completion of user requests. The website's UI delivers an engaging and intuitive experience, organized in a clear, step-by-step format. Users will find navigation simple, with all necessary actions easily accessible without extensive searching. Tasks are completed efficiently, akin to a straightforward game, reducing the cognitive load on users.
 
-## Learn More
+So join us and discover how we can transform the mundane into something fun!
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Tech Stack & Tools
+- [Next.js](https://nextjs.org/?ref=cal.com)
+- [Tailwind CSS](https://tailwindcss.com/?ref=cal.com)
+- [Zod](https://github.com/colinhacks/zod)
+- [React Hook Form](https://react-hook-form.com)
+- [zustand](https://zustand-demo.pmnd.rs/)
+- [ThreeJs](https://threejs.org/)
+- [Blender](https://www.blender.org/)
+- [Canva](https://www.canva.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vercel](https://vercel.com/)
+- [React](https://react.dev/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- DEVELOPMENT -->
+## 🎉 Local Development
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Aztaro97/42-daily-dev.git
+   ```
+2. Go to the project directory
+	```sh
+	cd 42-daily-dev
+	```
+3. Install NPM packages
+   ```sh
+   pnpm install
+   ```
+4. Set up your .env file
+   ```sh
+   cp .env.example .env
+   ```
+   Then fill in the required information
+5. Apply migrations to database
+	```
+	pnpm db:migrate
+	```
+6. Push schema changes to your database
+	```
+	pnpm db:push
+	```
+7. Run the development server
+   ```sh
+   pnpm dev
+   ```
+8. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+
+
+
+
+<!-- CONTRIBUTION -->
+## 🎉 Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://allcontributors.org) specification.
+Contributions of any kind are welcome!
+-  Suggest a feature
+-  Report a bug
+-  Fix something and open a pull request
+-  Help us improve the documentation
+-  Spread the word and share the project with your friends
+-  Support the project by starring the repo
+
+
+<!-- LICENSE -->
+## 🔑 License
+
+Distribution under [MIT LICENSE](https://github.com/Aztaro97/42-daily-App/blob/main/LICENSE) , See `LICENSE` for more informations.

@@ -11,41 +11,86 @@ interface IDepartmentData {
   x: number;
   z: number;
   direction: number;
+  bgImgUrl: string;
 }
 const departmentData: IDepartmentData[] = [
   {
-    name: "House",
-    cluster: "house2",
-    x: 2,
-    z: 2,
+    name: "crime security",
+    cluster: "crime-security",
+    x: -1,
+    z: 0,
     direction: 2,
+    bgImgUrl: "/images/jail.jpeg",
   },
+//   {
+//     name: "Gamification",
+//     cluster: "crime-security",
+//     x: 2,
+//     z: 1,
+//     direction: 2,
+//     bgImgUrl: "/images/driving.jpeg",
+//   },
   {
-    name: "Shop Area",
-    cluster: "shoparea",
-    x: 2,
-    z: 1,
-    direction: 2,
-  },
-  {
-    name: "Apartments",
-    cluster: "apartments",
+    name: "civil defense",
+    cluster: "civil-defense",
     x: 2,
     z: 0,
     direction: 2,
+    bgImgUrl: "/images/fire.jpeg",
+  },
+  //   {
+  //     name: "Super Market",
+  //     cluster: "supermarket",
+  //     x: 0,
+  //     z: -3,
+  //     direction: 2,
+  //     bgImgUrl: "/images/driving.jpeg",
+  //   },
+  {
+    name: "Policing General Head Quarter",
+    cluster: "Policing",
+    x: -3,
+    z: -4,
+    direction: 2,
+    bgImgUrl: "/images/police.jpeg",
   },
   {
-    name: "Super Market",
-    cluster: "supermarket",
-    x: 0,
-    z: -3,
+    name: "Punitive and Reformatory",
+    cluster: "PUNITIVE",
+    x: -3,
+    z: -4,
     direction: 2,
+    bgImgUrl: "/images/gun.jpeg",
   },
+  {
+    name: "Traffic & Licensing",
+    cluster: "traffic",
+    x: -3,
+    z: -4,
+    direction: 2,
+    bgImgUrl: "/images/traffic.jpeg",
+  },
+  {
+    name: "Public Services",
+    cluster: "traffic",
+    x: -3,
+    z: -4,
+    direction: 2,
+    bgImgUrl: "/images/public.jpeg",
+  },
+//   {
+//     name: "Other Services",
+//     cluster: "traffic",
+//     x: -3,
+//     z: -4,
+//     direction: 2,
+//     bgImgUrl: "/images/others.jpeg",
+//   },
 ];
 
 export default function DepartmentMenu() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
       {departmentData.map((department, index) => (
         <CardItem key={index} {...department} />
       ))}
@@ -53,7 +98,7 @@ export default function DepartmentMenu() {
   );
 }
 
-const CardItem = ({ name, cluster }: IDepartmentData) => {
+const CardItem = ({ name, cluster, bgImgUrl }: IDepartmentData) => {
   const { setClusterSelected, setIsOpen } = useDepartmentModal();
 
   const handleSelect = () => {
@@ -68,14 +113,16 @@ const CardItem = ({ name, cluster }: IDepartmentData) => {
     >
       <Image
         alt={name}
-        className="h-[200px] w-full group-hover:scale-105 transition-transform duration-300"
+        className="h-[200px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
         height={300}
         width={300}
-        src="/images/driving.jpeg"
+        src={bgImgUrl}
         priority
       />
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/60 rounded-lg group-hover:bg-black/80 transition-all duration-300">
-        <h3 className="text-white text-xl font-semibold text-center">{name}</h3>
+        <h3 className="text-white text-xl font-semibold text-center uppercase">
+          {name}
+        </h3>
       </div>
     </div>
   );
