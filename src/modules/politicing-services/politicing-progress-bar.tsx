@@ -4,73 +4,71 @@ interface ProgressProps {
   currentStep: number;
 }
 
-const Progress: React.FC<ProgressProps> = ({ currentStep }) => {
+const PoliticingProgressBar: React.FC<ProgressProps> = ({ currentStep }) => {
   return (
-    <div className="flex items-center justify-center pt-12 pb-2 md:pt-16 md:pb- 4">
-      <div className="grid w-full max-w-4xl grid-cols-4 gap-4 md:gap-8">
-        {/* Step 1 */}
-        <IconWrapper isActive={currentStep === 1}>
-          <ClipboardIcon />
-          <div className="mt-2 text-center">
-            <h3
-              className={`text-sm font-medium ${
-                currentStep === 1 ? "text-blue-500" : "text-gray-500"
-              }`}
-            >
-              Step 1
-            </h3>
-            <p
-              className={`text-xs  ${
-                currentStep === 1 ? "text-blue-500" : "text-gray-500"
-              }`}
-            >
-              Select Tickets
-            </p>
-          </div>
-        </IconWrapper>
+    <div className="flex justify-between items-center gap-x-5 mb-10">
+      {/* Step 1 */}
+      <IconWrapper isActive={currentStep === 1}>
+        <ClipboardIcon />
+        <div className="mt-2 text-center">
+          <h3
+            className={`text-sm font-medium ${
+              currentStep === 1 ? "text-primary" : "text-gray-500"
+            }`}
+          >
+            Step 1
+          </h3>
+          <p
+            className={`text-xs  ${
+              currentStep === 1 ? "text-primary" : "text-gray-500"
+            }`}
+          >
+            Application Info
+          </p>
+        </div>
+      </IconWrapper>
 
-        {/* Step 2 */}
-        <IconWrapper isActive={currentStep === 2}>
-          <LayersIcon />
-          <div className="mt-2 text-center">
-            <h3
-              className={`text-sm font-medium ${
-                currentStep === 2 ? "text-blue-500" : "text-gray-500"
-              }`}
-            >
-              Step 2
-            </h3>
-            <p
-              className={`text-xs  ${
-                currentStep === 2 ? "text-blue-500" : "text-gray-500"
-              }`}
-            >
-              Service Summary
-            </p>
-          </div>
-        </IconWrapper>
+      {/* Step 2 */}
+      <IconWrapper isActive={currentStep === 2}>
+        <LayersIcon />
+        <div className="mt-2 text-center">
+          <h3
+            className={`text-sm font-medium ${
+              currentStep === 2 ? "text-primary" : "text-gray-500"
+            }`}
+          >
+            Step 2
+          </h3>
+          <p
+            className={`text-xs  ${
+              currentStep === 2 ? "text-primary" : "text-gray-500"
+            }`}
+          >
+            Restrictions
+          </p>
+        </div>
+      </IconWrapper>
 
-        {/* Step 3 */}
-        <IconWrapper isActive={currentStep === 3}>
-          <CheckIcon />
-          <div className="mt-2 text-center">
-            <h3
-              className={`text-sm font-medium ${
-                currentStep === 3 ? "text-blue-500" : "text-gray-500"
-              }`}
-            >
-              Step 3
-            </h3>
-            <p
-              className={`text-xs  ${
-                currentStep === 3 ? "text-blue-500" : "text-gray-500"
-              }`}
-            >
-              Pay Online
-            </p>
-          </div>
-        </IconWrapper>
-      </div>
+      {/* Step 3 */}
+      <IconWrapper isActive={currentStep === 3}>
+        <CheckIcon />
+        <div className="mt-2 text-center">
+          <h3
+            className={`text-sm font-medium ${
+              currentStep === 3 ? "text-primary" : "text-gray-500"
+            }`}
+          >
+            Step 3
+          </h3>
+          <p
+            className={`text-xs  ${
+              currentStep === 3 ? "text-primary" : "text-gray-500"
+            }`}
+          >
+            Payment Gateway
+          </p>
+        </div>
+      </IconWrapper>
     </div>
   );
 };
@@ -83,16 +81,14 @@ interface IconWrapperProps {
 const IconWrapper: React.FC<IconWrapperProps> = ({ children, isActive }) => {
   return (
     <div
-      className={`flex flex-col items-center ${
-        isActive ? "text-blue-500" : ""
-      }`}
+      className={`flex flex-col items-center ${isActive ? "text-primary" : ""}`}
     >
       {children}
     </div>
   );
 };
 
-export default Progress;
+export default PoliticingProgressBar;
 
 function CheckIcon(props?: React.SVGProps<SVGSVGElement>) {
   return (
