@@ -43,40 +43,40 @@ export const services: TService[] = [
     title: "",
     icon: <HassantukIcon />,
     description: "Hassantuk For Homes",
-    link: "/game/Hassantuk",
+    link: "/traffic-services/form",
   },
   {
     title: "",
     icon: <CertificateIcon />,
     description:
       "Issue a certificate of conformity with preventive safety requirements for low risk buildings and facilities A",
-    link: "/game/Hassantuk",
+    link: "/traffic-services/form",
   },
   {
     title: "",
     icon: <HassantukBuildingIcon />,
     description: "Hassantuk for Buildings",
-    link: "/game/Hassantuk",
+    link: "/traffic-services/form",
   },
   {
     title: "",
     icon: <LicenceSafetyIcon />,
     description:
       "Licensing a Distributor in the field of preventive fire safety",
-    link: "/game/Hassantuk",
+    link: "/traffic-services/form",
   },
   {
     title: "",
     icon: <LicenseRenewIcon />,
     description:
       "Licensing a Distributor in the field of preventive fire safety",
-    link: "/game/Hassantuk",
+    link: "/traffic-services/form",
   },
   {
     title: "",
     icon: <InssuanceIcon />,
     description: `Issuance of "To Whom It May Concern" Certificate - Civil Defense`,
-    link: "/game/Hassantuk",
+    link: "/traffic-services/form",
   },
 ];
 

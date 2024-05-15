@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import this from https://video-react.github.io/assets/video-react.css */
+/* @import url("https://video-react.github.io/assets/video-react.css"); */
+
 @layer base {
   :root {
     /* Name: custom color palette
