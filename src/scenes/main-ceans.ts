@@ -94,12 +94,17 @@ function loadClusters({ x, z, cluster, direction }, scene, camera, controls, glt
 		const boxSize = box.getSize(new THREE.Vector3()).length();
 		const boxCenter = box.getCenter(new THREE.Vector3());
 
+		// Set camera to top-down view
+		// camera.position.set(boxSize/2, boxSize/1.3 , boxSize/1.7);
+		camera.rotation.set(Math.PI / 4, Math.PI, 0);
+
+
 		controls.maxDistance = boxSize * 5;
 		camera.position.copy(boxCenter);
-		camera.position.x += boxSize / 8.0;
-		camera.position.y += boxSize / 10.0;
-		camera.position.z += boxSize / 5.0;
-		camera.lookAt(boxCenter);
+		camera.position.x += boxSize / 4.0;
+		camera.position.y += boxSize / 1.0;
+		camera.position.z += boxSize / 1.0;
+		// camera.lookAt(boxCenter);
 		camera.near = boxSize / 100;
 		camera.far = boxSize * 200;
 		camera.updateProjectionMatrix();
@@ -144,6 +149,11 @@ function enforceCameraHeight(camera) {
 	// Assuming the lowest point the camera should not see below is at y = 0
 	if (camera.position.y < 10) {  // Minimum 10 units above the ground or any object
 		camera.position.y = 10;
+	}
+	if (camera.position.y > 70) {  // Minimum 10 units above the ground or any object
+		camera.position.y = 70;
+		// camera.position.z = 70;
+		// camera.position.x = 70;
 	}
 }
 

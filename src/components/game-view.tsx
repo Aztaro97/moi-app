@@ -62,7 +62,10 @@ const GameView = () => {
       event.preventDefault();
       if (!camera || !controls || !scene) return;
 
-      const mouse = new THREE.Vector2();
+      const mouse = new THREE.Vector2(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1
+      );
 
       const raycaster = new THREE.Raycaster();
       controls?.update();
@@ -74,9 +77,9 @@ const GameView = () => {
       if (intersects.length > 0) {
         const object = intersects[0].object;
         console.log("Cluster ID:", object.userData);
-        // if (object.userData.name === "Residence") {
-        //   setIsOpenService(true);
-        // }
+        if (object.userData.name === "Building_House_03_color01_Cylinder.000") {
+          setIsOpenService(true);
+        }
         // Trigger your onClick logic here
         // onClickCluster(object.userData.clusterId);
       }
@@ -101,7 +104,8 @@ const GameView = () => {
 
       if (intersects.length > 0) {
         const object = intersects[0].object;
-        console.log("Cluster ID:", object.userData);
+
+        // console.log("Cluster ID:", object.userData);
         // Update cursor or show tooltip if hovering over a sign
         if (object.parent && object.parent.userData.details) {
           document.body.style.cursor = "pointer";
@@ -127,12 +131,12 @@ const GameView = () => {
     newScene.background = new THREE.Color("#9FE3FA");
 
     const newCamera = new THREE.PerspectiveCamera(
-      75,
+      50,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    newCamera.position.set(80, 140, 80);
+    // newCamera.position.set(80, 140, 80);
     // newCamera.position.y = 200;
 
     const newControls = new OrbitControls(newCamera, canvasRef.current);
@@ -147,7 +151,7 @@ const GameView = () => {
     newControls.autoRotateSpeed = -10;
     newControls.enablePan = true;
     newControls.screenSpacePanning = true;
-    newControls.maxPolarAngle = Math.PI / 2;
+    newControls.maxPolarAngle = Math.PI / 3.5;
 
     setRenderer(newRenderer);
     setScene(newScene);

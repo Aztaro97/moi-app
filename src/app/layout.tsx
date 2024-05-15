@@ -8,7 +8,23 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Font files can be colocated inside of `pages`
 const myFont = localFont({
-  src: "../../public/assets/fonts/Kid-Games.woff2"
+  src: [
+    {
+      path: "../../public/assets/fonts/League.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/League-ThinInline.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/League-Inline.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
