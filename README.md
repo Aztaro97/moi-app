@@ -62,6 +62,32 @@ So join us and discover how we can transform the mundane into something fun!
 5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
+## Project Directory Structure
+
+- `/public`: This directory contains static files like images, videos, textures and 3D files.
+- `/src`: This directory contains all the source code for the application.
+  - `/components`: This directory contains all the React components.
+  - `/config`: This directory contains all the configuration files.
+  - `/constants`: This directory contains all the constants used in the application.
+  - `/icons`: This directory contains all the SVG icons used in the application.
+  - `/lib`: This directory contains all the utility functions.
+  - `/modules`: This directory contains all modules, like the `all the e-services` module.
+  - `/screens`: This directory contains all the 3D scenes.
+  - `/schemas`: This directory contains all the form validation schema used in the application.
+  - `/stores`: This directory contains all the hooks or state management related files.
+  - `/types`: This directory contains all the types used in the application.
+- `.eslintrc.js` : This file contains the ESLint configuration.
+- `.gitignore`: This file tells git which files to ignore.
+- `components.json`: This files contains the ShadCn configuration.
+- `kirimase.config.json`: This files contains the Kirimase-cli configuration.
+- `next.config.js`: This file contains the Next.js configuration.
+- `package.json`: This file contains metadata about the project and its dependencies.
+- `README.md`: This file contains documentation about the project.
+- `tailwind.config.js`: This file contains the Tailwind CSS configuration.
+- `tsconfig.json`: This file contains the TypeScript configuration.
+
+
+
 
 
 
