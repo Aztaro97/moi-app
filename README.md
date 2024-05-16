@@ -111,4 +111,3 @@ Contributions of any kind are welcome!
 -  Help us improve the documentation
 -  Spread the word and share the project with your friends
 -  Support the project by starring the repo
-
